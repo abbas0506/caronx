@@ -4,7 +4,7 @@
 @endsection
 
 @section('sidebar')
-<x-sidebars.admin page='books'></x-sidebars.admin>
+<x-sidebars.admin page='courses'></x-sidebars.admin>
 @endsection
 
 @section('body')
@@ -14,9 +14,9 @@
         <div class="bread-crumb">
             <a href="{{url('/')}}">Home</a>
             <i class="bx bx-chevron-right"></i>
-            <a href="{{route('admin.books.index',)}}">Books</a>
+            <a href="{{route('admin.courses.index',)}}">Courses</a>
             <i class="bx bx-chevron-right"></i>
-            <a href="{{route('admin.book.chapters.index',$book)}}">Chapters</a>
+            <a href="{{route('admin.course.chapters.index',$course)}}">Chapters</a>
             <i class="bx bx-chevron-right"></i>
             <div>Create</div>
         </div>
@@ -30,16 +30,16 @@
         <div class="container bg-slate-100 py-6">
             <div class="flex justify-center items-center mt-8">
                 <!-- page message -->
-                <form action="{{route('admin.book.chapters.store', $book)}}" method='post' class="md:w-2/3">
+                <form action="{{route('admin.course.chapters.store', $course)}}" method='post' class="md:w-2/3">
                     @csrf
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="md:col-span-2">
-                            <h2>{{ $book->name }}</h2>
+                            <h2>{{ $course->name }}</h2>
                         </div>
                         <div>
                             <label>Sr</label>
-                            <input type="number" name="sr" value="{{ $book->chapters->max('sr') + 1 }}" class="custom-input-borderless" min=1>
+                            <input type="number" name="sr" value="{{ $course->chapters->max('sr') + 1 }}" class="custom-input-borderless" min=1>
                         </div>
                         <div class="md:col-span-2">
                             <label>Chapter Title</label>

@@ -38,7 +38,7 @@
                         @method('PATCH')
                         <div class="grid gap-6">
                             <div>
-                                <h2>{{ $chapter->book->name }}</h2>
+                                <h2>{{ $chapter->course->name }}</h2>
                             </div>
                             <div>
                                 <label>Chapter Title</label>

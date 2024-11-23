@@ -93,7 +93,7 @@ class BookChapterController extends Controller
 
         try {
             $chapter->update($request->all());
-            return redirect()->route('operator.books.chapters.index', $chapter->book_id)->with('success', 'Successfully updated');;
+            return redirect()->route('operator.books.chapters.index', $chapter->course_id)->with('success', 'Successfully updated');;
         } catch (Exception $ex) {
             return redirect()->back()->withErrors($ex->getMessage());
         }

@@ -15,7 +15,7 @@
             <i class="bx bx-chevron-right"></i>
             <a href="{{route('collaborator.grades.index')}}">Grades</a>
             <i class="bx bx-chevron-right"></i>
-            <a href="{{route('collaborator.grade.chapters.index', $chapter->book->grade)}}">Chapters</a>
+            <a href="{{route('collaborator.grade.chapters.index', $chapter->course->grade)}}">Chapters</a>
             <i class="bx bx-chevron-right"></i>
             <div>Questions</div>
 
@@ -26,7 +26,7 @@
             <!-- mid panel  -->
             <div class="flex flex-wrap justify-between items-center py-4 border-b border-slate-400 border-dashed">
                 <div>
-                    <h2 class="text-teal-600">{{ $chapter->book->name }}</h2>
+                    <h2 class="text-teal-600">{{ $chapter->course->name }}</h2>
                     <label>Ch # {{ $chapter->sr }}. {{ $chapter->title }}</label>
                 </div>
                 <div class="flex">

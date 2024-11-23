@@ -9,15 +9,15 @@ class Chapter extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'book_id',
+        'course_id',
         'title', //title
         'sr',
 
     ];
 
-    public function book()
+    public function course()
     {
-        return $this->belongsTo(Book::class);
+        return $this->belongsTo(Course::class);
     }
 
     public function  topics()

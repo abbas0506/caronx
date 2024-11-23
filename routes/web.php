@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\BookChapterController;
 use App\Http\Controllers\Admin\BookController;
 use App\Http\Controllers\Admin\ChapterQuestionController;
 use App\Http\Controllers\Admin\ChapterTopicController;
+use App\Http\Controllers\Admin\CourseChapterController;
+use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\TopicQuestionController;
 use App\Http\Controllers\Admin\TypeController;
@@ -78,8 +80,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', [DashboardController::class, 'index']);
         Route::resource('users', UserController::class);
         Route::resource('packages', PackageController::class);
-        Route::resource('books', BookController::class);
-        Route::resource('book.chapters', BookChapterController::class);
+        Route::resource('courses', CourseController::class);
+        Route::resource('course.chapters', CourseChapterController::class);
         Route::resource('chapter.topics', ChapterTopicController::class);
         Route::resource('types', TypeController::class);
 

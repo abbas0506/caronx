@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('papers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->nullable()->constrained()->cascadeOnDelete();
-            $table->foreignId('book_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('course_id')->constrained()->cascadeOnDelete();
             $table->string('chapter_ids', 200)->nullable(); //comma separted list of source chapters
             $table->string('title', 100)->nullable();
             $table->string('institution', 100)->nullable();

@@ -14,7 +14,7 @@
         <div class="bread-crumb">
             <a href="/">Home</a>
             <i class="bx bx-chevron-right"></i>
-            <a href="{{route('admin.books.index')}}">Books</a>
+            <a href="{{route('admin.courses.index')}}">Books</a>
             <i class="bx bx-chevron-right"></i>
             <div>Edit</div>
         </div>
@@ -27,21 +27,18 @@
 
         <div class="container-light">
 
-            <form action="{{route('admin.books.update',$book)}}" method='post' class="grid gap-8 mt-6 w-full md:w-2/3 mx-auto">
+            <form action="{{route('admin.courses.update',$course)}}" method='post' class="grid gap-8 mt-6 w-full md:w-2/3 mx-auto">
                 @csrf
                 @method('patch')
-                <div>
-                    <label>Book Name</label>
-                    <input type="text" name='name' class="custom-input-borderless" placeholder="Enter book name" value="{{ $book->name }}" required>
-                </div>
-                <div class="md:w-1/2">
-                    <label>Courses</label>
-                    <input type="text" name='course' class="custom-input-borderless" placeholder="Enter course name" value="{{ $book->course->name }}" required>
-                </div>
                 <div class="md:w-1/2">
                     <label>Sr</label>
-                    <input type="number" name="sr" value="1" class="custom-input-borderless" placeholder="Sr" value="{{ $book->sr }}" required>
+                    <input type="number" name="sr" value="{{ $course->sr }}" class="custom-input-borderless" placeholder="Sr" required>
                 </div>
+                <div>
+                    <label>Course Name</label>
+                    <input type="text" name='name' class="custom-input-borderless" placeholder="Enter course name" value="{{ $course->name }}" required>
+                </div>
+
                 <div>
                     <button type="submit" class="btn btn-blue mt-6">Update</button>
                 </div>

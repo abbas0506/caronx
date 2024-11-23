@@ -14,7 +14,7 @@
         <div class="bread-crumb">
             <a href="{{url('/')}}">Home</a>
             <i class="bx bx-chevron-right"></i>
-            <a href="{{route('admin.books.index',)}}">Books</a>
+            <a href="{{route('admin.courses.index',)}}">Books</a>
             <i class="bx bx-chevron-right"></i>
             <div>Chapters</div>
         </div>
@@ -22,7 +22,7 @@
         <!-- <div class="p-4 border rounded-lg bg-green-100 border-green-200 mt-6"> -->
         <div class="flex flex-wrap gap-4 bg-orange-50 justify-between items-center p-4">
             <h2 class="text-green-600">{{ $book->name }}</h2>
-            <a href="{{ route('admin.book.chapters.create', $book) }}" class="btn btn-green rounded text-sm">Add Chapter</a>
+            <a href="{{ route('admin.course.chapters.create', $book) }}" class="btn btn-green rounded text-sm">Add Chapter</a>
         </div>
         <!-- </div> -->
 
@@ -48,10 +48,10 @@
                     </div>
                 </a>
                 <div class="flex items-center space-x-3 p-2 rounded">
-                    <a href="{{route('admin.book.chapters.edit', [$chapter->book, $chapter])}}" class="text-green-600">
+                    <a href="{{route('admin.course.chapters.edit', [$chapter->course, $chapter])}}" class="text-green-600">
                         <i class="bx bx-pencil"></i>
                     </a>
-                    <form action="{{route('admin.book.chapters.destroy',[$book,$chapter])}}" method="POST" onsubmit="return confirmDel(event)">
+                    <form action="{{route('admin.course.chapters.destroy',[$book,$chapter])}}" method="POST" onsubmit="return confirmDel(event)">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="bg-transparent p-0 border-0" @disabled($chapter->questions()->count())>

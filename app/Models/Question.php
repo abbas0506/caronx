@@ -18,13 +18,9 @@ class Question extends Model
         'difficulty_level',
     ];
 
-    public function user()
+    public function topic()
     {
-        return $this->belongsTo(User::class);
-    }
-    public function chapter()
-    {
-        return $this->belongsTo(Chapter::class);
+        return $this->belongsTo(Topic::class);
     }
     public function type()
     {
@@ -149,9 +145,9 @@ class Question extends Model
                 ->where('type_id', $this->type_id)
                 ->where('statement', 'like', '%' . $shortListedWordsArray[0] . '%')
                 ->whereRelation('chapter', function ($query) {
-                    $query->where('book_id', $this->chapter->book_id)
+                    $query->where('book_id', $this->chapter->course_id)
                         ->whereRelation('book', function ($query) {
-                            $query->where('subject_id', $this->chapter->book->subject_id);
+                            $query->where('subject_id', $this->chapter->course->subject_id);
                         });
                 });
 

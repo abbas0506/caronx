@@ -52,7 +52,7 @@ class PoetryLineController extends Controller
             $question = $chapter->questions()->create([
                 'user_id' => Auth::user()->id,
                 'type_id' => $request->type_id,
-                'statement' => ($chapter->book->subject->name_en == 'English' ? 'verse' : 'شعر') . " " . $sr,
+                'statement' => ($chapter->course->subject->name_en == 'English' ? 'verse' : 'شعر') . " " . $sr,
             ]);
             $question = $question->poetryLines()->create([
                 'line_a' => $request->line_a,

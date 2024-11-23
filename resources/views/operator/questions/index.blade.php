@@ -21,7 +21,7 @@ $activeChapter=$chapter;
             <i class="bx bx-chevron-right"></i>
             <a href="{{route('operator.books.index')}}">Books</a>
             <i class="bx bx-chevron-right"></i>
-            <a href="{{route('operator.books.chapters.index', $chapter->book)}}">Chapters</a>
+            <a href="{{route('operator.books.chapters.index', $chapter->course)}}">Chapters</a>
             <i class="bx bx-chevron-right"></i>
             <div>Ch. {{ $chapter->sr }}</div>
 
@@ -32,7 +32,7 @@ $activeChapter=$chapter;
             <!-- mid panel  -->
             <div class="flex flex-wrap items-center justify-between p-4 border rounded-lg bg-green-100 border-green-200">
                 <div>
-                    <h2>{{ $chapter->book->name }}</h2>
+                    <h2>{{ $chapter->course->name }}</h2>
                     <label>Ch # {{ $chapter->sr }}. {{ $chapter->title }}</label>
                 </div>
 

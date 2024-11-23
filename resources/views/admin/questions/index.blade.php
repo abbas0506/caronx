@@ -13,7 +13,7 @@
         <div class="bread-crumb">
             <a href="{{url('/')}}">Home</a>
             <i class="bx bx-chevron-right"></i>
-            <a href="{{route('admin.book.chapters.index',$topic->chapter->book)}}">Book</a>
+            <a href="{{route('admin.course.chapters.index',$topic->chapter->course)}}">Courses</a>
             <i class="bx bx-chevron-right"></i>
             <div>Qs</div>
         </div>
@@ -96,10 +96,7 @@
         </div>
     </div>
 </div>
-</div>
-</div>
-</div>
-</div>
+
 <script type="text/javascript">
     function confirmDel(event) {
         event.preventDefault(); // prevent form submit

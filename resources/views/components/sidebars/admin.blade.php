@@ -38,9 +38,9 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('admin.books.index') }}" class="flex items-center p-2">
-                    <i class="bi bi-book @if($page=='books') current-page @endif"></i>
-                    <span class="ml-3">Books</span>
+                <a href="{{ route('admin.courses.index') }}" class="flex items-center p-2 @if($page=='courses') current-page @endif">
+                    <i class="bi bi-book"></i>
+                    <span class="ml-3">Courses</span>
                 </a>
             </li>
         </ul>

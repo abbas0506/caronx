@@ -4,46 +4,48 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Chapter;
-use App\Models\Topic;
+use App\Models\Course;
 use Exception;
 use Illuminate\Http\Request;
 
-class ChapterTopicController extends Controller
+class CourseChapterController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($courseId)
     {
         //
+        $course = Course::findOrFail($courseId);
+        return view('admin.chapters.index', compact('course'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create($id)
+    public function create($courseId)
     {
         //
-        $chapter = Chapter::findOrFail($id);
-        return view('admin.topics.create', compact('chapter'));
+        $course = Course::findOrFail($courseId);
+        return view('admin.chapters.create', compact('course'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, $id)
+    public function store(Request $request, $courseId)
     {
         //
         $request->validate([
-            'name' => 'required',
+            'title' => 'required',
             'sr' => 'required|numeric',
         ]);
 
-        $chapter = Chapter::findOrFail($id);
+        $course = Course::findOrFail($courseId);
         try {
 
-            $chapter->topics()->create($request->all());
-            return redirect()->route('admin.course.chapters.index', $chapter->course)->with('success', 'Successfully added');;
+            $course->chapters()->create($request->all());
+            return redirect()->route('admin.course.chapters.index', $course)->with('success', 'Successfully added');;
         } catch (Exception $ex) {
             return redirect()->back()->withErrors($ex->getMessage());
         }
@@ -60,29 +62,29 @@ class ChapterTopicController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($chapterId, $id)
+    public function edit($courseId, string $id)
     {
         //
-        $chapter = Chapter::findOrFail($chapterId);
-        $topic = Topic::findOrFail($id);
-        return view('admin.topics.edit', compact('chapter', 'topic'));
+        $course = Course::findOrFail($courseId);
+        $chapter = Chapter::findOrFail($id);
+        return view('admin.chapters.edit', compact('course', 'chapter'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $chapterId, $id)
+    public function update(Request $request, string $courseId, $chapterId)
     {
         //
         $request->validate([
-            'name' => 'required',
+            'title' => 'required',
             'sr' => 'required|numeric',
         ]);
 
         $chapter = Chapter::findOrFail($chapterId);
 
         try {
-            $chapter->topics()->findOrFail($id)->update($request->all());
+            $chapter->update($request->all());
             return redirect()->route('admin.course.chapters.index', $chapter->course_id)->with('success', 'Successfully updated');;
         } catch (Exception $ex) {
             return redirect()->back()->withErrors($ex->getMessage());
@@ -92,12 +94,12 @@ class ChapterTopicController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($chapterId, string $id,)
+    public function destroy($courseId, string $id)
     {
         //
-        $model = Topic::findOrFail($id);
+        $chapter = Chapter::findOrFail($id);
         try {
-            $model->delete();
+            $chapter->delete();
             return redirect()->back()->with('success', 'Successfully deleted!');
         } catch (Exception $e) {
             return redirect()->back()->withErrors($e->getMessage());

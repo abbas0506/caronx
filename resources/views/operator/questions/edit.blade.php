@@ -15,7 +15,7 @@
             <i class="bx bx-chevron-right"></i>
             <a href="{{route('operator.books.index')}}">Books</a>
             <i class="bx bx-chevron-right"></i>
-            <a href="{{route('operator.books.chapters.index', $chapter->book)}}">Chapters</a>
+            <a href="{{route('operator.books.chapters.index', $chapter->course)}}">Chapters</a>
             <i class="bx bx-chevron-right"></i>
             <a href="{{route('operator.chapter.questions.index', $chapter)}}">Questions</a>
             <i class="bx bx-chevron-right"></i>
@@ -26,7 +26,7 @@
 
         <div class="md:w-3/4 mx-auto mt-8">
 
-            <h2>{{ $question->chapter->book->name }}</h2>
+            <h2>{{ $question->chapter->course->name }}</h2>
             <label>Ch # {{ $question->chapter->sr }}. {{ $question->chapter->title }}</label>
 
             <!-- page message -->
@@ -39,7 +39,7 @@
                 @csrf
                 @method('PATCH')
 
-                <input type="hidden" id='book_id' value="{{ $chapter->book->id }}">
+                <input type="hidden" id='book_id' value="{{ $chapter->course->id }}">
                 <div class="">
                     <label>Question Type</label>
                     <p>{{ $question->type->name }}</p>

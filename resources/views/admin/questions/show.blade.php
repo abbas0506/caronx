@@ -13,9 +13,9 @@
         <div class="bread-crumb">
             <a href="{{url('/')}}">Home</a>
             <i class="bx bx-chevron-right"></i>
-            <a href="{{route('admin.books.index',)}}">Books</a>
+            <a href="{{route('admin.courses.index',)}}">Books</a>
             <i class="bx bx-chevron-right"></i>
-            <a href="{{route('admin.book.chapters.index',$chapter->book)}}">Chapters</a>
+            <a href="{{route('admin.course.chapters.index',$chapter->course)}}">Chapters</a>
             <i class="bx bx-chevron-right"></i>
             <a href="{{route('admin.chapter.questions.index',$chapter)}}">Questions</a>
             <i class="bx bx-chevron-right"></i>
@@ -23,7 +23,7 @@
         </div>
 
         <div class="md:w-4/5 mx-auto mt-8">
-            <h2>{{ $question->chapter->book->name }}</h2>
+            <h2>{{ $question->chapter->course->name }}</h2>
             <label>Ch # {{ $question->chapter->sr }}. {{ $question->chapter->title }}</label>
 
             <div class="grid gap-6 mt-6">

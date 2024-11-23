@@ -22,7 +22,7 @@
 
         <!-- pallets -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <a href="{{ route('admin.books.index') }}" class="pallet-box">
+            <a href="{{ route('admin.courses.index') }}" class="pallet-box">
                 <div class="flex-1">
                     <div class="title">Questions</div>
                     <div class="flex items-center space-x-4">
@@ -80,18 +80,15 @@
                                 <tr class="">
                                     <th class="w-10">Sr</th>
                                     <th class='w-60'>Question</th>
-                                    <th class="w-24">Subject</th>
+                                    <th class="w-24">Course</th>
                                     <th class='w-24'>Created_at</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @php
-                                $sr=1;
-                                @endphp
                                 @foreach($questions->sortByDesc('id')->take(20) as $question) <tr class="tr">
-                                    <td>{{$sr++}}</td>
+                                    <td>{{ $loop->index+1 }}</td>
                                     <td class=" text-left">{{ $question->statement }}</td>
-                                    <td>{{ $question->chapter->book->name }}</td>
+                                    <td>{{ $question->topic->chapter->course->name }}</td>
                                     <td>{{ $question->created_at }}</td>
                                 </tr>
                                 @endforeach

@@ -3,13 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Book;
 use App\Models\Course;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class BookController extends Controller
+class CourseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +15,8 @@ class BookController extends Controller
     public function index()
     {
         //
-        $courses = Course::with('book')->get();
-        return view('admin.books.index', compact('courses'));
+        $courses = Course::all();
+        return view('admin.courses.index', compact('courses'));
     }
 
     /**
@@ -27,7 +25,8 @@ class BookController extends Controller
     public function create()
     {
         //
-        return view('admin.books.create');
+        $sr = Course::all()->max('sr') + 1;
+        return view('admin.courses.create', compact('sr'));
     }
 
     /**
@@ -39,23 +38,12 @@ class BookController extends Controller
         $request->validate([
             'name' => 'required',
             'sr' => 'required|numeric',
-            'course' => 'required',
         ]);
 
-        DB::beginTransaction();
         try {
-            $course = Course::create([
-                'name' => $request->course,
-            ]);
-
-            $course->book()->create([
-                'name' => $request->name,
-                'sr' => $request->sr,
-            ]);
-            DB::commit();
-            return redirect()->route('admin.books.index')->with('success', 'Successfully added');;
+            Course::create($request->all());
+            return redirect()->route('admin.courses.index')->with('success', 'Successfully added');;
         } catch (Exception $ex) {
-            DB::rollBack();
             return redirect()->back()->withErrors($ex->getMessage());
         }
     }
@@ -74,9 +62,8 @@ class BookController extends Controller
     public function edit(string $id)
     {
         //
-        $courses = Course::all();
-        $book = Book::findOrFail($id);
-        return view('admin.books.edit', compact('courses', 'book'));
+        $course = Course::findOrFail($id);
+        return view('admin.courses.edit', compact('course'));
     }
 
     /**
@@ -88,24 +75,13 @@ class BookController extends Controller
         $request->validate([
             'name' => 'required',
             'sr' => 'required|numeric',
-            'course' => 'required',
         ]);
-        $book = Book::findOrFail($id);
-        $course = Course::findOrFail($book->course_id);
-        DB::beginTransaction();
-        try {
-            $course->update([
-                'name' => $request->course,
-            ]);
 
-            $course->book()->update([
-                'name' => $request->name,
-                'sr' => $request->sr,
-            ]);
-            DB::commit();
-            return redirect()->route('admin.books.index')->with('success', 'Successfully added');;
+        $course = Course::findOrFail($id);
+        try {
+            $course->update($request->all());
+            return redirect()->route('admin.courses.index')->with('success', 'Successfully added');;
         } catch (Exception $ex) {
-            DB::rollBack();
             return redirect()->back()->withErrors($ex->getMessage());
         }
     }
@@ -116,8 +92,7 @@ class BookController extends Controller
     public function destroy(string $id)
     {
         //
-        $book = Book::findOrFail($id);
-        $course = Course::findOrFail($book->course_id);
+        $course = Course::findOrFail($id);
         try {
             $course->delete();
             return redirect()->back()->with('success', 'Successfully deleted!');

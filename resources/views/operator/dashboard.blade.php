@@ -65,7 +65,7 @@ $colors=config('globals.colors');
                                 @foreach($questions->sortByDesc('id')->take(20) as $question) <tr class="tr text-sm">
                                     <td>{{$sr++}}</td>
                                     <td class="text-left">{{ $question->statement }}</td>
-                                    <td class="text-left">{{ $question->chapter->book->name }}</td>
+                                    <td class="text-left">{{ $question->chapter->course->name }}</td>
                                     <td>
                                         <div class="flex justify-center items-center space-x-2">
                                             <a href="{{route('operator.chapter.questions.edit', [$question->chapter, $question])}}">

@@ -38,9 +38,9 @@ class AjaxController extends Controller
 
         $questions = Question::where('statement', 'like', '%' . $str . '%')
             ->whereRelation('chapter', function ($query) use ($question) {
-                $query->where('book_id', $question->chapter->book_id)
+                $query->where('book_id', $question->chapter->course_id)
                     ->whereRelation('book', function ($query) use ($question) {
-                        $query->where('subject_id', $question->chapter->book->subject_id);
+                        $query->where('subject_id', $question->chapter->course->subject_id);
                     });
             })->get();
 

@@ -14,9 +14,9 @@
         <div class="bread-crumb">
             <a href="{{url('/')}}">Home</a>
             <i class="bx bx-chevron-right"></i>
-            <a href="{{route('admin.books.index',)}}">Books</a>
+            <a href="{{route('admin.courses.index',)}}">Books</a>
             <i class="bx bx-chevron-right"></i>
-            <a href="{{route('admin.book.chapters.index',$chapter->book)}}">Chapters</a>
+            <a href="{{route('admin.course.chapters.index',$chapter->course)}}">Chapters</a>
             <i class="bx bx-chevron-right"></i>
             <div>Edit</div>
         </div>

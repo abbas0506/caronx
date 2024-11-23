@@ -78,7 +78,7 @@ $i=0;
                         </td>
                         <td>
                             <div class="flex justify-center items-center space-x-3">
-                                <a href="{{route('operator.books.chapters.edit', [$chapter->book, $chapter])}}">
+                                <a href="{{route('operator.books.chapters.edit', [$chapter->course, $chapter])}}">
                                     <i class="bx bx-pencil text-green-600"></i>
                                 </a>
                                 <span class="text-slate-400">|</span>

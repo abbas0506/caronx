@@ -14,7 +14,7 @@ class CourseSeeder extends Seeder
     public function run(): void
     {
         //
-        Course::create(['name' => 'Genetics']);
-        Course::create(['name' => 'Molecular Biology']);
+        Course::create(['name' => 'Genetics', 'sr' => 1]);
+        Course::create(['name' => 'Molecular Biology', 'sr' => 2]);
     }
 }

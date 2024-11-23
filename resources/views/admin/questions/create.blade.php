@@ -13,7 +13,7 @@
         <div class="bread-crumb">
             <a href="{{url('/')}}">Home</a>
             <i class="bx bx-chevron-right"></i>
-            <a href="{{route('admin.book.chapters.index',$topic->chapter->book)}}">Book</a>
+            <a href="{{route('admin.course.chapters.index',$topic->chapter->course)}}">Book</a>
             <i class="bx bx-chevron-right"></i>
             <div>Create Q.</div>
         </div>
@@ -69,7 +69,7 @@
                     </div>
 
                     <!-- MCQs -->
-                    <div id="mcq" hidden>
+                    <div id="mcq" @if(session("type_id")!=1) hidden @endif>
                         <label for="">Choices</label>
                         <div class="grid gap-4 mt-2">
                             <div class="flex items-center space-x-2">

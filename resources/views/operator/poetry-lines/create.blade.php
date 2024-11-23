@@ -15,7 +15,7 @@
             <i class="bx bx-chevron-right"></i>
             <a href="{{route('operator.books.index')}}">Books</a>
             <i class="bx bx-chevron-right"></i>
-            <a href="{{route('operator.books.chapters.index', $chapter->book)}}">Chapters</a>
+            <a href="{{route('operator.books.chapters.index', $chapter->course)}}">Chapters</a>
             <i class="bx bx-chevron-right"></i>
             <a href="{{route('operator.chapter.questions.index', $chapter)}}">Questions</a>
             <i class="bx bx-chevron-right"></i>
@@ -32,7 +32,7 @@
             <x-message></x-message>
             @endif
 
-            <h2>{{ $chapter->book->name }}</h2>
+            <h2>{{ $chapter->course->name }}</h2>
             <label>Ch # {{ $chapter->sr }}. {{ $chapter->title }}</label>
 
             <form action="{{route('operator.chapter.poetry-lines.store', $chapter)}}" method='post' class="mt-6">
