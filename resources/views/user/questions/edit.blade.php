@@ -110,7 +110,7 @@
 
                 <div class="divider"></div>
                 <div class="text-center col-span-full mb-6">
-                    <button type="submit" class="btn-blue px-4 py-2 rounded">Update / Approve Now</button>
+                    <button type="submit" class="btn btn-blue px-4 py-2 rounded">Update / Approve Now</button>
                 </div>
 
             </form>

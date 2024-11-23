@@ -55,7 +55,7 @@
                         <input type="text" name='line_b' class="custom-input-borderless" placeholder="Poetry line B" required>
                     </div>
                     <div class="text-right mt-6">
-                        <button type="submit" class="btn-green rounded">Create Now</button>
+                        <button type="submit" class="btn btn-green rounded">Create Now</button>
                     </div>
                 </div>
             </form>

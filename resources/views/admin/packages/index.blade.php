@@ -35,7 +35,7 @@
         @endif
 
         <!-- fixed button for new grade -->
-        <a href="{{route('admin.packages.create')}}" class="fixed bottom-6 right-6 btn-green w-14 h-14 flex justify-center items-center rounded-full text-sm">New</a>
+        <a href="{{route('admin.packages.create')}}" class="fixed bottom-6 right-6 btn btn-green w-14 h-14 flex justify-center items-center rounded-full text-sm">New</a>
 
         <div class="overflow-x-auto w-full mt-6">
             <div class="flex items-center">

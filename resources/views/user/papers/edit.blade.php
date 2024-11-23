@@ -48,7 +48,7 @@
                     </div>
 
                     <div class="text-right">
-                        <button type="submit" class="btn-green rounded py-2 px-4 mt-6">Update</button>
+                        <button type="submit" class="btn btn-green rounded py-2 px-4 mt-6">Update</button>
                     </div>
 
                 </div>

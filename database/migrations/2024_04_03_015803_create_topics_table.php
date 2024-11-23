@@ -14,8 +14,9 @@ return new class extends Migration
         //
         Schema::create('topics', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('subject_id')->constrained()->cascadeOnDelete();
             $table->string('name', 100);
+            $table->foreignId('chapter_id')->constrained()->cascadeOnDelete();
+            $table->unsignedInteger('sr');
             $table->timestamps();
         });
     }

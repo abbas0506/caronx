@@ -61,7 +61,7 @@
                         <input type="text" id='' name='default_title' class="custom-input-borderless" placeholder="Default title" value="{{ $type->default_title }}">
                     </div>
                     <div class="text-right">
-                        <button type="submit" class="btn-teal rounded">Update Now</button>
+                        <button type="submit" class="btn btn-teal rounded">Update Now</button>
                     </div>
                 </div>
             </form>

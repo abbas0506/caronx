@@ -18,9 +18,8 @@ class DashboardController extends Controller
     {
         //
         $profiles = Profile::all();
-        $grades = Grade::all();
         $questions = Question::all();
 
-        return view('admin.dashboard', compact('profiles', 'grades', 'questions'));
+        return view('admin.dashboard', compact('profiles', 'questions'));
     }
 }

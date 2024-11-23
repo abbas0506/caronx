@@ -78,7 +78,7 @@
 
                     <div class="divider my-5"></div>
                     <div class="flex justify-end my-5">
-                        <button type="submit" class="btn-teal rounded-md text-sm py-2 px-4" @disabled($paper->book->chapters->count()==0)>Next <i class="bi-arrow-right"></i></button>
+                        <button type="submit" class="btn btn-teal rounded-md text-sm py-2 px-4" @disabled($paper->book->chapters->count()==0)>Next <i class="bi-arrow-right"></i></button>
                     </div>
             </form>
         </div>

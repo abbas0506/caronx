@@ -18,12 +18,8 @@ class BookChapterController extends Controller
     public function index($bookId)
     {
         //
-        $grades = Grade::all();
         $book = Book::findOrFail($bookId);
-        $tagIds = $book->chapters->sortBy('tag_id')->pluck('tag_id')->unique();
-        $tags = Tag::whereIn('id', $tagIds)->get();
-
-        return view('admin.qbank.chapters.index', compact('grades', 'book', 'tags'));
+        return view('admin.chapters.index', compact('book'));
     }
 
     /**
@@ -32,9 +28,8 @@ class BookChapterController extends Controller
     public function create($bookId)
     {
         //
-        $tags = Tag::all();
         $book = Book::findOrFail($bookId);
-        return view('admin.qbank.chapters.create', compact('book', 'tags'));
+        return view('admin.chapters.create', compact('book'));
     }
 
     /**
@@ -46,19 +41,13 @@ class BookChapterController extends Controller
         $request->validate([
             'title' => 'required',
             'sr' => 'required|numeric',
-            'tag_id' => 'required|numeric',
         ]);
 
-        $request->merge(['book_id' => $bookId]);
         $book = Book::findOrFail($bookId);
         try {
-            // if no chapter exists against this serial, create new
-            // if ($book->chapters()->where('sr', $request->sr)->count() == 0) {
-            Chapter::create($request->all());
-            return redirect()->route('admin.qbank-books.chapters.index', $book)->with('success', 'Successfully added');;
-            // } else {
-            // return redirect()->back()->with(['warning' => 'Chapter already exists']);
-            // }
+
+            $book->chapters()->create($request->all());
+            return redirect()->route('admin.book.chapters.index', $book)->with('success', 'Successfully added');;
         } catch (Exception $ex) {
             return redirect()->back()->withErrors($ex->getMessage());
         }
@@ -80,8 +69,7 @@ class BookChapterController extends Controller
         //
         $book = Book::findOrFail($bookId);
         $chapter = Chapter::findOrFail($id);
-        $tags = Tag::all();
-        return view('admin.qbank.chapters.edit', compact('book', 'chapter', 'tags'));
+        return view('admin.chapters.edit', compact('book', 'chapter'));
     }
 
     /**
@@ -93,14 +81,13 @@ class BookChapterController extends Controller
         $request->validate([
             'title' => 'required',
             'sr' => 'required|numeric',
-            'tag_id' => 'required|numeric',
         ]);
 
         $chapter = Chapter::findOrFail($chapterId);
 
         try {
             $chapter->update($request->all());
-            return redirect()->route('admin.qbank-books.chapters.index', $chapter->book_id)->with('success', 'Successfully updated');;
+            return redirect()->route('admin.book.chapters.index', $chapter->book_id)->with('success', 'Successfully updated');;
         } catch (Exception $ex) {
             return redirect()->back()->withErrors($ex->getMessage());
         }

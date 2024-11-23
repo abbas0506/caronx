@@ -40,7 +40,7 @@
                     <i class="bx bx-search absolute top-2 right-2"></i>
                 </div>
                 <!-- <div class=""> -->
-                <a href="{{route('admin.users.create')}}" class="fixed w-12 h-12 bottom-4 right-4 rounded-full btn-blue flex items-center justify-center"><i class="bi bi-person-add text-xl"></i></a>
+                <a href="{{route('admin.users.create')}}" class="fixed w-12 h-12 bottom-4 right-4 rounded-full btn btn-blue flex items-center justify-center"><i class="bi bi-person-add text-xl"></i></a>
                 <!-- </div> -->
             </div>
             <table class="table-fixed w-full text-sm">

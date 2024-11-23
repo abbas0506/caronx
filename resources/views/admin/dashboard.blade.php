@@ -22,7 +22,7 @@
 
         <!-- pallets -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <a href="{{ route('admin.qbank-books.index') }}" class="pallet-box">
+            <a href="{{ route('admin.books.index') }}" class="pallet-box">
                 <div class="flex-1">
                     <div class="title">Questions</div>
                     <div class="flex items-center space-x-4">

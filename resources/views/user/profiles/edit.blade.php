@@ -64,7 +64,7 @@
                     <input type="text" name="phone" value="{{ $user->profile?->phone}}" class="custom-input-borderless" placeholder="Phone">
                 </div>
                 <div class="mt-8">
-                    <button type="submit" class="btn-teal">Update Now</button>
+                    <button type="submit" class="btn btn-teal">Update Now</button>
                 </div>
 
             </form>

@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('name', 50);
             $table->unsignedTinyInteger('sr');
-            $table->string('display_style', 50);
             $table->string('default_title')->nullable();
             $table->timestamps();
         });

@@ -30,7 +30,7 @@
     <div class="flex flex-wrap justify-between items-center w-full">
         <a href="{{ url('/') }}" class="flex text-xl flex-wrap font-bold items-center">
             <img src="{{ url('images/logo/app-logo.png') }}" alt="" class="w-8">
-            <div class="text-lg font-medium ml-2">ExamPixel</div>
+            <div class="text-lg font-medium ml-2">Dr Sajjad Sarwar</div>
 
         </a>
         <nav id='navbar' class="navbar">

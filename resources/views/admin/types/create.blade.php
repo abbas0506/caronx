@@ -60,7 +60,7 @@
                         <input type="text" id='' name='default_title' class="custom-input-borderless" placeholder="Default title" value="">
                     </div>
                     <div class="text-right">
-                        <button type="submit" class="btn-teal rounded">Create Now</button>
+                        <button type="submit" class="btn btn-teal rounded">Create Now</button>
                     </div>
                 </div>
             </form>

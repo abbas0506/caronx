@@ -49,7 +49,7 @@ $QNo = 1;
                     <label for="">{{ $paper->paper_date->format('d/m/Y') }}</label>
                 </div>
                 <!-- center align at bottom -->
-                <a href="{{ route('user.papers.edit', $paper) }}" class="absolute right-2 top-1 btn-sky flex justify-center items-center rounded-full p-0 w-5 h-5"><i class="bx bx-pencil text-xs"></i></a>
+                <a href="{{ route('user.papers.edit', $paper) }}" class="absolute right-2 top-1 btn btn-sky flex justify-center items-center rounded-full p-0 w-5 h-5"><i class="bx bx-pencil text-xs"></i></a>
             </div>
 
             <!-- show print button only if paper has some questions -->

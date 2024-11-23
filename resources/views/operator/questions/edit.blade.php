@@ -127,7 +127,7 @@
 
                 <input type="hidden" name='sr' value="{{ $chapter->sr }}">
                 <div class="text-right col-span-full">
-                    <button type="submit" class="btn-green">Update Now</button>
+                    <button type="submit" class="btn btn-green">Update Now</button>
                 </div>
 
             </form>

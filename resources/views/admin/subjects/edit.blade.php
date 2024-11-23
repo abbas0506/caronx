@@ -50,7 +50,7 @@
                 </div>
 
                 <div class="">
-                    <button type="submit" class="btn-green rounded mt-6">Update</button>
+                    <button type="submit" class="btn btn-green rounded mt-6">Update</button>
                 </div>
             </form>
 

@@ -118,9 +118,9 @@
         @endforeach
 
         <div class="flex justify-end">
-            <a id='quit' href="{{ url('/') }}" class="btn-blue rounded-md py-3 px-4 text-sm mr-3"> Cancel Now</a>
-            <button id='finishQuizButton' type="submit" class="btn-red rounded-md py-3 px-4 text-sm"> Finsh Test</button>
-            <a id='tryOnceMore' href="{{ route('self-tests.show', $book) }}" class="hidden btn-green rounded-md px-4 py-3 text-sm"> Try Once More</a>
+            <a id='quit' href="{{ url('/') }}" class="btn btn-blue rounded-md py-3 px-4 text-sm mr-3"> Cancel Now</a>
+            <button id='finishQuizButton' type="submit" class="btn btn-red rounded-md py-3 px-4 text-sm"> Finsh Test</button>
+            <a id='tryOnceMore' href="{{ route('self-tests.show', $book) }}" class="hidden btn btn-green rounded-md px-4 py-3 text-sm"> Try Once More</a>
         </div>
     </div>
     <div class="my-8"></div>

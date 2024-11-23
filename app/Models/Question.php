@@ -11,20 +11,11 @@ class Question extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'user_id', //owner id
-        'chapter_id',
-        'type_id',
-
+        'topic_id',
         'statement',
-        'exercise_no',
-        'frequency',
-        'is_conceptual',
-        'approver_id',
-        'approved_at',
-    ];
-
-    protected $casts = [
-        'approved_at' => 'date',
+        'answer',
+        'type_id',
+        'difficulty_level',
     ];
 
     public function user()
@@ -44,14 +35,7 @@ class Question extends Model
     {
         return $this->hasOne(Mcq::class);
     }
-    public function comprehensions()
-    {
-        return $this->hasMany(Comprehension::class);
-    }
-    public function poetryLines()
-    {
-        return $this->hasMany(PoetryLine::class);
-    }
+
     public function scopeToday($query)
     {
         return $query->whereDate('questions.created_at', today());

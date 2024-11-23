@@ -13,18 +13,11 @@ return new class extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable()->constrained()->cascadeOnDelete();
-            $table->foreignId('chapter_id')->constrained()->cascadeOnDelete();
+            $table->string('statement', 200)->nullable();
+            $table->string('answer', 300)->nullable();
+            $table->unsignedTinyInteger('difficulty_level')->default(1);
+            $table->foreignId('topic_id')->constrained()->cascadeOnDelete();
             $table->foreignId('type_id')->constrained()->cascadeOnDelete();
-            $table->unsignedBigInteger('approver_id')->nullable();
-
-            $table->string('statement', 800)->nullable();
-            $table->string('exercise_no', 20)->nullable();
-            $table->unsignedTinyInteger('frequency')->default(1);
-            $table->boolean('is_conceptual')->default(false);
-
-            $table->date('approved_at')->nullable();
-            $table->foreign('approver_id')->references('id')->on('users')->cascadeOnDelete();
             $table->timestamps();
         });
     }

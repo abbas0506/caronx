@@ -73,7 +73,7 @@
                     </div>
 
                     <div class="md:col-span-2 text-right">
-                        <button type="submit" class="btn-green rounded">Update</button>
+                        <button type="submit" class="btn btn-green rounded">Update</button>
                     </div>
                 </div>
             </form>

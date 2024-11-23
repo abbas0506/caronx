@@ -11,7 +11,7 @@
     <div class="grid gap-2 mt-4 text">
         @foreach(Auth::user()->roles as $role)
         @if($role->name!='admin')
-        <a href="{{ url('switch/as',$role->name) }}" class="btn-teal text-xs font-normal text-center rounded">Switch to {{ $role->name }} </a>
+        <a href="{{ url('switch/as',$role->name) }}" class="btn btn-teal text-xs font-normal text-center rounded">Switch to {{ $role->name }} </a>
         @endif
         @endforeach
     </div>
@@ -25,7 +25,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('admin.subjects.index') }}" class="flex items-center p-2">
+                <a href="#" class="flex items-center p-2">
                     <i class="bi bi-gear @if($page=='config') current-page @endif"></i>
                     <span class="ml-3">Config</span>
                 </a>
@@ -38,9 +38,9 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('admin.qbank-books.index') }}" class="flex items-center p-2">
-                    <i class="bi bi-question-circle @if($page=='qbank') current-page @endif"></i>
-                    <span class="ml-3">Q. Bank</span>
+                <a href="{{ route('admin.books.index') }}" class="flex items-center p-2">
+                    <i class="bi bi-book @if($page=='books') current-page @endif"></i>
+                    <span class="ml-3">Books</span>
                 </a>
             </li>
         </ul>

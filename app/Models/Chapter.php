@@ -13,24 +13,19 @@ class Chapter extends Model
         'title', //title
         'sr',
 
-        'tag_id',
-
     ];
 
     public function book()
     {
         return $this->belongsTo(Book::class);
     }
-    public function tag()
+
+    public function  topics()
     {
-        return $this->belongsTo(Tag::class);
+        return $this->hasMany(Topic::class);
     }
     public function questions()
     {
-        return $this->hasMany(Question::class);
-    }
-    public function  scopeFilterByTag($query, $tagId)
-    {
-        return $query->where('tag_id', $tagId);
+        return $this->hasManyThrough(Question::class, Topic::class);
     }
 }

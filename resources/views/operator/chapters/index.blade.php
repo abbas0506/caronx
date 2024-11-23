@@ -34,7 +34,7 @@ $i=0;
 
                 </div>
                 <div>
-                    <a href="{{ route('operator.books.chapters.create', $book) }}" class="btn-green rounded text-sm">Add Chapter</a>
+                    <a href="{{ route('operator.books.chapters.create', $book) }}" class="btn btn-green rounded text-sm">Add Chapter</a>
                 </div>
 
             </div>

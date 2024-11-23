@@ -74,7 +74,7 @@
 
         </div>
         <div class="grid place-items-center mt-8">
-            <a href="{{ route('user.papers.create') }}" class="btn-blue rounded px-6 py-3">Generate Paper Now</a>
+            <a href="{{ route('user.papers.create') }}" class="btn btn-blue rounded px-6 py-3">Generate Paper Now</a>
         </div>
 
         <div class="bg-white w-full mt-8">

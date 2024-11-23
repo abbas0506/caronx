@@ -61,7 +61,7 @@
         </div>
 
         <div class="grid place-items-center h-40">
-            <a href="{{ route('collaborator.grades.index') }}" class="btn-blue rounded px-6 py-3">Start Approving Now</a>
+            <a href="{{ route('collaborator.grades.index') }}" class="btn btn-blue rounded px-6 py-3">Start Approving Now</a>
         </div>
 
         <div class="grid">

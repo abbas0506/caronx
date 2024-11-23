@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('subject_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('grade_id')->nullable()->constrained()->cascadeOnDelete();
             $table->string('name', 50);
+            $table->foreignId('course_id')->constrained()->cascadeOnDelete();
+            $table->unsignedInteger('sr')->default(1);
             $table->timestamps();
         });
     }

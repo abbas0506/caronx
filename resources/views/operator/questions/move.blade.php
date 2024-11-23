@@ -31,7 +31,7 @@
                     <label>Ch # {{ $chapter->sr }}. {{ $chapter->title }}</label>
                 </div>
 
-                <a href="{{route('operator.chapter.questions.index', $chapter)}}" class="btn-orange rounded">Back</a>
+                <a href="{{route('operator.chapter.questions.index', $chapter)}}" class="btn btn-orange rounded">Back</a>
 
             </div>
 
@@ -90,7 +90,7 @@
 
                     <div class="divider my-5"></div>
                     <div class="flex justify-end my-5">
-                        <button type="submit" class="btn-teal rounded py-2 px-4" @disabled($chapter->questions->count()==0)>Next <i class="bi-arrow-right"></i></button>
+                        <button type="submit" class="btn btn-teal rounded py-2 px-4" @disabled($chapter->questions->count()==0)>Next <i class="bi-arrow-right"></i></button>
                     </div>
                 </form>
             </div>

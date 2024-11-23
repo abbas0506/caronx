@@ -21,8 +21,8 @@
                 <input type="password" id="confirmpw" class="custom-input-borderless py-1" placeholder="Confirm password" required>
 
                 <div class="flex flex-wrap justify-center gap-4 mt-4">
-                    <a href="{{url(session('role'))}}" class="btn-blue text-center rounded-sm py-1">Cancel</a>
-                    <button type="submit" class="btn-red rounded-sm py-1">Change Password</button>
+                    <a href="{{url(session('role'))}}" class="btn btn-blue text-center rounded-sm py-1">Cancel</a>
+                    <button type="submit" class="btn btn-red rounded-sm py-1">Change Password</button>
                 </div>
             </form>
         </div>

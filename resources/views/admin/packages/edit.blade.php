@@ -60,7 +60,7 @@
 
 
                     <div class="md:col-span-2 text-right">
-                        <button type="submit" class="btn-teal rounded">Update Now</button>
+                        <button type="submit" class="btn btn-teal rounded">Update Now</button>
                     </div>
                 </div>
             </form>

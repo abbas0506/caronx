@@ -5,7 +5,7 @@
 @endsection
 
 @section('sidebar')
-<x-sidebars.admin page='qbank'></x-sidebars.admin>
+<x-sidebars.admin page='books'></x-sidebars.admin>
 @endsection
 
 @section('body')
@@ -14,9 +14,7 @@
         <div class="bread-crumb">
             <a href="/">Home</a>
             <i class="bx bx-chevron-right"></i>
-            <a href="{{route('admin.grade.books.index', $grade)}}">{{ $grade->name }}</a>
-            <i class="bx bx-chevron-right"></i>
-            <div>Books</div>
+            <a href="{{route('admin.books.index')}}">Books</a>
             <i class="bx bx-chevron-right"></i>
             <div>New</div>
         </div>
@@ -28,31 +26,25 @@
         @endif
 
         <div class="container-light">
-            <div class="flex items-center">
-                <h3 class="text-green-600 bg-green-100 px-3 py-1 rounded-full">New Book <i class="bx bx-book"></i></h3>
-            </div>
-            <form action="{{route('admin.grade.books.store', $grade)}}" method='post' class="w-full md:w-2/3 mx-auto">
-                <h2 class="mt-6">{{ $grade->name }}</h2>
-                @csrf
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
-                    <div class="md:col-span-2">
-                        <label>Book Name</label>
-                        <input type="text" name='name' class="custom-input-borderless" placeholder="Enter book name" value="" required>
-                    </div>
-                    <div>
-                        <label>Subject</label>
-                        <select name="subject_id" class="custom-input-borderless" required>
-                            <option value="">Select ...</option>
-                            @foreach($subjects as $subject)
-                            <option value="{{ $subject->id }}">{{ $subject->name_en }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="col-span-full">
-                        <button type="submit" class="btn-green rounded mt-6">Create</button>
-                    </div>
 
+            <form action="{{route('admin.books.store')}}" method='post' class="grid gap-8 mt-6 w-full md:w-2/3 mx-auto">
+                @csrf
+                <div>
+                    <label>Book Name</label>
+                    <input type="text" name='name' class="custom-input-borderless" placeholder="Enter book name" value="" required>
                 </div>
+                <div class="md:w-1/2">
+                    <label>Courses</label>
+                    <input type="text" name='course' class="custom-input-borderless" placeholder="Enter course name" value="" required>
+                </div>
+                <div class="md:w-1/2">
+                    <label>Sr</label>
+                    <input type="number" name="sr" value="1" class="custom-input-borderless" placeholder="Sr" value="" required>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-blue mt-6">Create</button>
+                </div>
+
             </form>
 
         </div>

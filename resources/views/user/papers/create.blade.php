@@ -56,7 +56,7 @@
                         <input type="text" name="title" class="custom-input-borderless" placeholder="Series Test" required>
                     </div>
                     <div class="text-center mt-4">
-                        <button type="submit" class="btn-teal rounded-md text-sm py-2 px-4">Next <i class="bi-arrow-right"></i></button>
+                        <button type="submit" class="btn btn-teal rounded-md text-sm py-2 px-4">Next <i class="bi-arrow-right"></i></button>
                     </div>
                 </div>
             </form>

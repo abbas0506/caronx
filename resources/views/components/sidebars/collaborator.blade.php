@@ -11,7 +11,7 @@
     <div class="grid gap-2 mt-4 text">
         @foreach(Auth::user()->roles as $role)
         @if($role->name!='collaborator')
-        <a href="{{ url('switch/as',$role->name) }}" class="btn-teal text-xs font-normal text-center rounded">Switch to {{ $role->name }} </a>
+        <a href="{{ url('switch/as',$role->name) }}" class="btn btn-teal text-xs font-normal text-center rounded">Switch to {{ $role->name }} </a>
         @endif
         @endforeach
     </div>

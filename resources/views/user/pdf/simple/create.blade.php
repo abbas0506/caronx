@@ -225,7 +225,7 @@
                 </div>
                 <div class="divider my-4"></div>
                 <div class="text-center mb-8">
-                    <button type="submit" class="btn-teal">Generate Paper <i class="bi-file-pdf ml-2"></i></button>
+                    <button type="submit" class="btn btn-teal">Generate Paper <i class="bi-file-pdf ml-2"></i></button>
                 </div>
             </form>
             @endif

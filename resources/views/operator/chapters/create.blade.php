@@ -60,7 +60,7 @@
                             </select>
                         </div>
                         <div class="">
-                            <button type="submit" class="btn-green rounded mt-6">Create</button>
+                            <button type="submit" class="btn btn-green rounded mt-6">Create</button>
                         </div>
 
                     </div>

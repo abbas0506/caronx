@@ -105,7 +105,7 @@
                     </div>
 
                     <div class="text-right">
-                        <button type="submit" class="btn-green rounded">Create Now</button>
+                        <button type="submit" class="btn btn-green rounded">Create Now</button>
                     </div>
                 </div>
             </form>

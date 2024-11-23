@@ -64,7 +64,7 @@
                     </div>
 
                     <div class="md:col-span-2 text-right">
-                        <button type="submit" class="btn-green rounded">Create User</button>
+                        <button type="submit" class="btn btn-green rounded">Create User</button>
                     </div>
                 </div>
             </form>

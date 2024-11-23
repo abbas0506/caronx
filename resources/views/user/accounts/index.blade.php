@@ -74,7 +74,7 @@
             @else
             <div class="h-full flex flex-col justify-center items-center">
                 <h3 class="text-slate-600">Currently no paper found!</h3>
-                <a href="{{ route('user.papers.index') }}" class="btn-blue mt-6 rounded">Start Creating Now</a>
+                <a href="{{ route('user.papers.index') }}" class="btn btn-blue mt-6 rounded">Start Creating Now</a>
             </div>
             @endif
         </div>

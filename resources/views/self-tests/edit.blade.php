@@ -44,7 +44,7 @@
         <div class="flex items-center justify-center gap-4 my-8">
             <input type="hidden" name="book_id" value="{{ $book->id }}">
             <a href="{{ route('self-tests.index') }}" class="hover:bg-slate-100 py-3 px-4 text-sm rounded-md border">Cancel Test</a>
-            <button type="submit" class="btn-teal py-3 px-4 text-sm rounded-md" @disabled($book->chapters->count()==0)> Start Now</button>
+            <button type="submit" class="btn btn-teal py-3 px-4 text-sm rounded-md" @disabled($book->chapters->count()==0)> Start Now</button>
         </div>
     </form>
 </div>

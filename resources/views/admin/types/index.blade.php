@@ -29,7 +29,7 @@
 
 
 
-        <a href="{{route('admin.types.create')}}" class="fixed bottom-6 right-6 btn-green w-10 h-10 flex justify-center items-center rounded-full text-xs">New</a>
+        <a href="{{route('admin.types.create')}}" class="fixed bottom-6 right-6 btn btn-green w-10 h-10 flex justify-center items-center rounded-full text-xs">New</a>
         <div class="container-light">
 
             <!-- page message -->

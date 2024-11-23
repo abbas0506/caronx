@@ -9,27 +9,23 @@ class Book extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'subject_id',
-        'grade_id',
         'name',
+        'course_id',
+        'sr',
     ];
 
-    public function subject()
+    public function course()
     {
-        return $this->belongsTo(Subject::class);
-    }
-    public function grade()
-    {
-        return $this->belongsTo(Grade::class);
+        return $this->belongsTo(Course::class);
     }
     public function chapters()
     {
         return $this->hasMany(Chapter::class);
     }
-    public function questions()
-    {
-        return $this->hasManyThrough(Question::class, Chapter::class);
-    }
+    // public function questions()
+    // {
+    //     return $this->hasManyThrough(Question::class, Chapter::class);
+    // }
 
     public function questionTypes()
     {

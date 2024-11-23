@@ -15,7 +15,7 @@
                 bank covering all major subjects from grade 9 to 12. </p>
             <div class="flex flex-col md:flex-row items-center justify-center gap-2 mt-8 w-full">
                 <a href="{{ url('login') }}" class="w-64">
-                    <button class="btn-teal rounded py-3 w-full">Generate Question Paper</button>
+                    <button class="btn btn-teal rounded py-3 w-full">Generate Question Paper</button>
                 </a>
                 <a href="{{ route('self-tests.index') }}" class="w-64">
                     <button class="bg-orange-200 hover:bg-orange-300 text-slate-800 rounded p-3 w-full">Start

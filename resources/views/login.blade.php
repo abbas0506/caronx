@@ -34,7 +34,7 @@
                     <i class="bi bi-eye absolute right-2 eye hidden"></i>
                 </div>
 
-                <button type="submit" class="w-full mt-6 btn-teal p-2">Login</button>
+                <button type="submit" class="w-full mt-6 btn btn-teal p-2">Login</button>
             </div>
         </form>
 

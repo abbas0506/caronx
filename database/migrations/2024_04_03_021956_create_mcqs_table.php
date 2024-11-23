@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('choice_c', 100);
             $table->string('choice_d', 100);
             $table->string('correct', 1);
-            $table->string('explanation', 300)->nullable();
             $table->timestamps();
         });
     }

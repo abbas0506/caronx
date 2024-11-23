@@ -36,7 +36,7 @@ $activeChapter=$chapter;
                     <label>Ch # {{ $chapter->sr }}. {{ $chapter->title }}</label>
                 </div>
 
-                <a href="{{route('operator.chapter.questions.create', $chapter)}}" class="btn-green rounded">New Q.</a>
+                <a href="{{route('operator.chapter.questions.create', $chapter)}}" class="btn btn-green rounded">New Q.</a>
 
             </div>
 
@@ -54,8 +54,8 @@ $activeChapter=$chapter;
             </div>
             <div class="flex items-center gap-6">
 
-                <a href="{{route('operator.type-changes.edit', $chapter)}}" class="btn-blue">Change Q.Type</a>
-                <a href="{{route('operator.question-movements.edit', $chapter)}}" class="btn-orange">Move to Chapter</a>
+                <a href="{{route('operator.type-changes.edit', $chapter)}}" class="btn btn-blue">Change Q.Type</a>
+                <a href="{{route('operator.question-movements.edit', $chapter)}}" class="btn btn-orange">Move to Chapter</a>
             </div>
 
             <div class="overflow-x-auto">

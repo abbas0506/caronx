@@ -103,7 +103,7 @@
                 </div>
                 <!-- <div class="divider my-3"></div> -->
                 <div class="text-right">
-                    <button type="submit" class="btn-blue px-4 py-2 text-sm rounded-md">Add Q.</button>
+                    <button type="submit" class="btn btn-blue px-4 py-2 text-sm rounded-md">Add Q.</button>
                 </div>
                 <div class="h-8"></div>
             </form>
