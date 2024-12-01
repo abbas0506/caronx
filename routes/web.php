@@ -1,10 +1,6 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\GradeController;
-use App\Http\Controllers\Admin\BookChapterController;
-use App\Http\Controllers\Admin\BookController;
-use App\Http\Controllers\Admin\ChapterQuestionController;
 use App\Http\Controllers\Admin\ChapterTopicController;
 use App\Http\Controllers\Admin\CourseChapterController;
 use App\Http\Controllers\Admin\CourseController;
@@ -15,7 +11,6 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\PasswordController;
-use App\Http\Controllers\Operator\BookController as OperatorBookController;
 use App\Http\Controllers\SelfTestController;
 use App\Http\Controllers\SignupController;
 use App\Http\Controllers\User\AccountController;
@@ -88,18 +83,6 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('topic.questions', TopicQuestionController::class);
         Route::view('change/password', 'admin.change_password');
         Route::post('change/password', [AuthController::class, 'changePassword'])->name('change.password');
-    });
-
-    Route::group(['prefix' => 'operator', 'as' => 'operator.', 'middleware' => ['role:operator']], function () {
-        Route::get('/', [OperatorDashboardController::class, 'index']);
-
-        Route::resource('books', OperatorBookController::class);
-        Route::resource('grade.books', GradeBookController::class);
-        Route::resource('books.chapters', BookChapterController::class);
-        Route::resource('chapter.questions', ChapterQuestionController::class);
-        Route::resource('chapter.poetry-lines', PoetryLineController::class);
-        Route::resource('type-changes', QuestionTypeChangeController::class);
-        Route::resource('question-movements', QuestionMovementController::class);
     });
 
     Route::group(['prefix' => 'user', 'as' => 'user.', 'middleware' => ['role:user']], function () {
