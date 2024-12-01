@@ -31,12 +31,11 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
-    return view('index');
-    // if (Auth::check()) {
-    //     return redirect(session('role'));
-    // } else {
-    //     return view('index');
-    // }
+    if (Auth::check()) {
+        return redirect(session('role'));
+    } else {
+        return view('index');
+    }
 });
 
 
