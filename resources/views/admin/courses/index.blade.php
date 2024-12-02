@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="md:w-4/5 mx-auto">
-            <h3 class="text-lg mt-8 text-center">Courses</h3>
+            <h2 class="text-xl mt-8 text-center">Courses</h2>
             <p class="text-slate-600 leading-relaxed mt-6 text-center text-sm">Here is the most recent list of available courses. If you dont see any course here, create new</p>
             <div class="h-1 w-24 bg-teal-800 mx-auto mt-6"></div>
             <div class="text-center mt-6">
@@ -34,8 +34,8 @@
             <x-message></x-message>
             @endif
 
-            <div class="overflow-x-auto mt-4">
-                <table class=" borderless w-full">
+            <div class="overflow-x-auto mt-12">
+                <table class="table-fixed borderless w-full">
                     <thead>
                         <tr class="">
                             <th class="w-10">Sr</th>
