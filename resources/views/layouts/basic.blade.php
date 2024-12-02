@@ -5,9 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>@yield('title', 'Exampixel - auto generates question paper for teachers')</title>
-    {{-- <title>Exampixel</title> --}}
-    <link rel="icon" href="{{ asset('/images/logo/fav-ico.png') }}">
+    <title>Quiz</title>
+    <link rel="icon" href="{{ asset('/images/logo/q.png') }}">
     <!-- Fonts -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Styles -->
@@ -15,68 +14,13 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
-
-    <!-- <script src="{{ asset('js/html5-qrcode.min.js') }}"></script> -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
     <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('/css/swiper.css') }}">
-
-    {{-- Meta Tags for SEO --}}
-    <meta name="description"
-        content="Exampixel is built for educators and students to create exams, quizzes, and generate papers for SSC, HSS/Intermediate levels. An easy-to-use platform for seamless paper creation and online test management.">
-    <meta name="keywords"
-        content="Exampixel, take exam, paper generation, paper making, quiz, SSC paper generation, HSS paper generation, intermediate paper creation, online exam, online quiz platform, online test system, exam management, test mak">
-
-    {{-- og tags for social media --}}
-    <meta property="og:title" content="Exampixel - Streamline Exam Creation for Educators">
-    <meta property="og:description"
-        content="Create exams, quizzes, and generate papers with Exampixel - your go-to platform for SSC, HSS/Intermediate paper making and online test management.">
-    <meta property="og:image" content="@yield('ogimage', asset('/images/logo/exampixel-0.png'))">
-    <meta property="og:url" content="{{ Request::url() }}">
-    <meta property="og:site_name" content="Exampixel">
-    <meta property="og:type" content="website">
-
-    <!-- Google Tag Manager -->
-    <script>
-        (function(w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({
-                'gtm.start': new Date().getTime(),
-                event: 'gtm.js'
-            });
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.async = true;
-            j.src =
-                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-TD8RFZQV');
-    </script>
-    <!-- End Google Tag Manager -->
 </head>
 
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TD8RFZQV" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BN651Z3VC4"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'G-BN651Z3VC4');
-    </script>
-
     @yield('header')
     @yield('sidebar')
 

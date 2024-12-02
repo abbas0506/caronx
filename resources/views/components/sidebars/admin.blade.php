@@ -1,7 +1,7 @@
 <aside aria-label="Sidebar" id='sidebar'>
     <div class="flex items-center justify-center w-full mt-16">
         <a href="{{url('/')}}" class="">
-            <img alt="logo" src="{{asset('images/logo/app-logo.png')}}" class="w-16">
+            <img alt="logo" src="{{asset('images/logo/q_sky.png')}}" class="w-16">
         </a>
     </div>
     <div class="mt-8 font-bold text-center text-orange-300 uppercase tracking-wide">Exampixel</div>
@@ -41,6 +41,12 @@
                 <a href="{{ route('admin.courses.index') }}" class="flex items-center p-2 @if($page=='courses') current-page @endif">
                     <i class="bi bi-book"></i>
                     <span class="ml-3">Courses</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{url('signout')}}" class="flex items-center p-2">
+                    <i class="bi bi-power"></i>
+                    <span class="ml-3">Log Off</span>
                 </a>
             </li>
         </ul>

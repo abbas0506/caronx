@@ -3,8 +3,8 @@
 
         <div class="flex items-center">
             <a href="{{ url('/') }}" class="flex text-xl flex-wrap font-bold items-center">
-                <img src="{{ url('images/logo/app-logo.png') }}" alt="" class="w-6 md:hidden">
-                <div class="text-lg font-medium ml-2">ExamPixel</div>
+                <img src="{{ url('images/logo/q.png') }}" alt="" class="w-6">
+                <div class="text-lg font-medium">uiz</div>
 
             </a>
         </div>
@@ -12,7 +12,6 @@
             <label for="toggle-current-user-dropdown" class="hidden md:flex items-center">
                 <div class="">{{ Auth::user()->name }}</div>
             </label>
-            <a href="{{url('signout')}}" class="flex items-center justify-center w-8 h-8 rounded-full"><i class="bi bi-power"></i></a>
             <div id='menu' class="flex md:hidden">
                 <i class="bi bi-list"></i>
             </div>

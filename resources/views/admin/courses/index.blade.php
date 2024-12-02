@@ -21,11 +21,8 @@
             </div>
         </div>
         <div class="md:w-4/5 mx-auto">
-            <!-- <h1 class="text-xl md:text-3xl text-center mt-5">Question Bank</h1> -->
-            <!-- <img src="{{url('images/small/paper-3.png')}}" alt="paper" class="w-24 mx-auto mt-3">
-            -->
             <h3 class="text-lg mt-8 text-center">Courses</h3>
-            <p class="text-slate-600 leading-relaxed mt-6 text-center">Here is the most recent list of available books <br> If you dont see any book here, create new</p>
+            <p class="text-slate-600 leading-relaxed mt-6 text-center text-sm">Here is the most recent list of available books. If you dont see any book here, create new</p>
             <div class="h-1 w-24 bg-teal-800 mx-auto mt-6"></div>
             <div class="text-center mt-6">
                 <a href="{{ route('admin.courses.create') }}" class="text-xs px-4 py-2 btn btn-blue rounded-full">Create Course</a>

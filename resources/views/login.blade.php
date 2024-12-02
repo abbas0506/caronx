@@ -7,7 +7,7 @@
     <div class="grid place-items-center w-full md:w-1/2 mx-auto">
 
         <h2 class="text-4xl font-bold">WELCOME</h2>
-        <label for="">https://www.exampixel.com</label>
+        <label for="">https://www.exam.caronx.com</label>
 
         <form action="{{ url('login') }}" method="post" class="w-full mt-8 text-center">
             @csrf

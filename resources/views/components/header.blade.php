@@ -29,9 +29,8 @@
 <header class="sticky-header" id='header'>
     <div class="flex flex-wrap justify-between items-center w-full">
         <a href="{{ url('/') }}" class="flex text-xl flex-wrap font-bold items-center">
-            <img src="{{ url('images/logo/app-logo.png') }}" alt="" class="w-8">
-            <div class="text-lg font-medium ml-2">Dr Sajjad Sarwar</div>
-
+            <img src="{{ url('images/logo/q.png') }}" alt="" class="w-8">
+            <div class="text-lg font-medium ml-2">Quiz</div>
         </a>
         <nav id='navbar' class="navbar">
             <ul>
