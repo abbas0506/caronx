@@ -2,14 +2,11 @@
 @section('title', 'Signup')
 @section('body')
 
-<div class="grid grid-cols-1 md:grid-cols-2 md:h-screen place-items-center bg-white p-5">
+<div class="flex justify-center items-center h-screen bg-white p-5">
 
-    <div><img src="{{ url('images/small/signup.png') }}" alt="signup" class=""></div>
-    <div class="grid place-items-center w-full md:w-1/2 mx-auto">
-
-        <h2 class="text-4xl font-bold">NEW USER</h2>
-        <label for="">https://www.exampixel.com</label>
-
+    <div class="grid place-items-center w-full md:w-1/3 mx-auto">
+        <img src="{{ url('images/small/login.png') }}" alt="login" class="w-36">
+        <h2>www.exam.caronx.com</h2>
         <form action="{{ route('signup.store') }}" method="post" class="w-full mt-8">
             @csrf
 
@@ -49,10 +46,6 @@
         </div>
     </div>
 </div>
-
-
-
-
 @endsection
 
 @section('script')
