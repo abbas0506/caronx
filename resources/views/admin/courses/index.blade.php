@@ -17,12 +17,12 @@
                 <div>/</div>
                 <div>Q.Bank</div>
                 <div>/</div>
-                <div>Books</div>
+                <div>Courses</div>
             </div>
         </div>
         <div class="md:w-4/5 mx-auto">
             <h3 class="text-lg mt-8 text-center">Courses</h3>
-            <p class="text-slate-600 leading-relaxed mt-6 text-center text-sm">Here is the most recent list of available books. If you dont see any book here, create new</p>
+            <p class="text-slate-600 leading-relaxed mt-6 text-center text-sm">Here is the most recent list of available courses. If you dont see any course here, create new</p>
             <div class="h-1 w-24 bg-teal-800 mx-auto mt-6"></div>
             <div class="text-center mt-6">
                 <a href="{{ route('admin.courses.create') }}" class="text-xs px-4 py-2 btn btn-blue rounded-full">Create Course</a>
@@ -34,31 +34,45 @@
             <x-message></x-message>
             @endif
 
-            <div class="grid mt-6 md:w-2/3 mx-auto gap-2">
-                @foreach($courses as $course)
-                <div class="p-4 rounded bg-slate-100  relative">
-                    <a href="{{ route('admin.course.chapters.index', $course) }}" class="link">{{ $course->name }} <span class="text-slate-400 text-xs">({{ $course->questions()->count() }})</span></a>
-                    <div class="absolute top-2 -right-6">
-                        <a href="{{route('admin.courses.edit', $course)}}" class="text-green-600">
-                            <i class="bx bx-pencil"></i>
-                        </a>
-                        <form action="{{route('admin.courses.destroy',$course)}}" method="POST" onsubmit="return confirmDel(event)">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="bg-transparent p-0 border-0">
-                                <i class="bx bx-trash text-red-600"></i>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-                @endforeach
-            </div>
+            <div class="overflow-x-auto mt-4">
+                <table class=" borderless w-full">
+                    <thead>
+                        <tr class="">
+                            <th class="w-10">Sr</th>
+                            <th class='w-60 text-left'>Course</th>
+                            <th class="w-24">Qs</th>
+                            <th class='w-24'>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($courses as $course)
+                        <tr class="tr">
+                            <td>{{ $loop->index+1 }}</td>
+                            <td class=" text-left"><a href="{{ route('admin.course.chapters.index', $course) }}" class="link">{{ $course->name }}</a></td>
+                            <td class="text-slate-400 text-xs">({{ $course->questions()->count() }})</td>
+                            <td>
+                                <div class="flex items-center justify-center space-x-2">
+                                    <a href="{{route('admin.courses.edit', $course)}}" class="text-green-600">
+                                        <i class="bx bx-pencil"></i>
+                                    </a>
+                                    <form action="{{route('admin.courses.destroy',$course)}}" method="POST" onsubmit="return confirmDel(event)">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="bg-transparent p-0 border-0">
+                                            <i class="bx bx-trash text-red-600"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        @endforeach
 
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
-
-
 @endsection
 
 @section('script')
