@@ -21,12 +21,12 @@
             </div>
         </div>
         <div class="md:w-4/5 mx-auto">
-            <h2 class="text-xl mt-8 text-center">Courses</h2>
-            <p class="text-slate-600 leading-relaxed mt-6 text-center text-sm">Here is the most recent list of available courses. If you dont see any course here, create new</p>
-            <div class="h-1 w-24 bg-teal-800 mx-auto mt-6"></div>
-            <div class="text-center mt-6">
-                <a href="{{ route('admin.courses.create') }}" class="text-xs px-4 py-2 btn btn-blue rounded-full">Create Course</a>
-            </div>
+            <h2 class="text-xl mt-8">Courses</h2>
+            <p class="text-slate-600 leading-relaxed text-sm">Here is the most recent list of available courses. If you dont see any course here, create new</p>
+            <div class="h-1 w-24 bg-teal-800 mt-3"></div>
+
+            <a href="{{ route('admin.courses.create') }}" class="fixed bottom-4 right-4 w-12 h-12 btn btn-blue rounded-full flex justify-center items-center"><i class="bi-plus-lg"></i></a>
+
 
             @if($errors->any())
             <x-message :errors='$errors'></x-message>
@@ -39,9 +39,9 @@
                     <thead>
                         <tr class="">
                             <th class="w-10">Sr</th>
-                            <th class='w-60 text-left'>Course</th>
-                            <th class="w-24">Qs</th>
-                            <th class='w-24'>Actions</th>
+                            <th class='w-36 text-left'>Course</th>
+                            <th class="w-12">Qs</th>
+                            <th class='w-12'>Actions</th>
                         </tr>
                     </thead>
                     <tbody>

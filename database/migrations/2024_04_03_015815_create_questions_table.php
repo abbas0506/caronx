@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->string('statement', 200)->nullable();
-            $table->string('answer', 300)->nullable();
+            $table->string('statement', 500);
+            $table->string('answer', 500)->nullable();
             $table->unsignedTinyInteger('difficulty_level')->default(1);
+            $table->string('image', 50)->nullable();
             $table->foreignId('topic_id')->constrained()->cascadeOnDelete();
             $table->foreignId('type_id')->constrained()->cascadeOnDelete();
             $table->timestamps();

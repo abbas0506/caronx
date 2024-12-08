@@ -38,7 +38,7 @@
                 </a>
             </div>
 
-            <form action="{{route('admin.topic.questions.store', $topic)}}" method='post' class="mt-6" onsubmit="return validate(event)">
+            <form action="{{route('admin.topic.questions.store', $topic)}}" method='post' class="mt-6" enctype="multipart/form-data" onsubmit="return validate(event)">
                 @csrf
                 <div class="grid items-center gap-6 w-full">
                     <div class="md:w-1/2">
@@ -96,6 +96,15 @@
                         <textarea type="text" id='answer' name="answer" class="custom-input py-2 mt-2" rows='3' placeholder="Type here"></textarea>
                     </div>
 
+                    <div>
+                        <label for="" class="mt-6">Image</label>
+                        <input type="file" id='pic' name='image' placeholder="Image" class='custom-input py-2' onchange='preview_pic()' accept="image/*" required>
+                    </div>
+
+                    <div class="flex flex-col justify-center items-center">
+                        <img src="{{asset('images/no-image.png')}}" alt="" id='preview_img' class="w-60">
+                    </div>
+
                     <div class="text-right">
                         <button type="submit" class="btn btn-green rounded">Create Now</button>
                     </div>
@@ -105,6 +114,14 @@
         </div>
     </div>
 </div>
+<script>
+    function preview_pic() {
+        const [file] = pic.files
+        if (file) {
+            preview_img.src = URL.createObjectURL(file)
+        }
+    }
+</script>
 @endsection
 @section('script')
 <script type="module">
@@ -147,6 +164,7 @@
             }
 
         });
+
     });
 </script>
 @endsection

@@ -22,7 +22,7 @@
 
         <div class="text-sm md:w-4/5 mx-auto mt-6">
 
-            <h2 class="bg-gradient-to-r from-teal-100 to-teal-50 p-4 my-8 rounded"><i class="bi-book"></i> &nbsp{{ $course->name }}</h2>
+            <h2 class="border-2 border-blue-300 p-4 my-8 rounded"><i class="bi-book"></i> &nbsp{{ $course->name }}</h2>
 
             <!-- page message -->
             @if($errors->any())

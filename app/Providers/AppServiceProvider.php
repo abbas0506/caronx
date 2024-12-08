@@ -13,7 +13,6 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         //
-
     }
 
     /**
@@ -21,7 +20,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
-
+        //temporarity added to change upload size
+        ini_set('upload_max_filesize', '5M');
+        ini_set('post_max_size', '5M');
     }
 }

@@ -7,8 +7,12 @@ use App\Models\Question;
 use App\Models\Topic;
 use App\Models\Type;
 use Exception;
+use Illuminate\Support\Facades\File;
+
+// use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Intervention\Image\Laravel\Facades\Image;
 
 class TopicQuestionController extends Controller
 {
@@ -41,9 +45,10 @@ class TopicQuestionController extends Controller
         //
         $request->validate([
             'type_id' => 'required|numeric',
-            'statement' => 'required|max:200',
-            'answer' => 'required|max:300',
+            'statement' => 'required|max:500',
+            'answer' => 'nullable|max:500',
             'difficulty_level' => 'required|numeric',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5000',
         ]);
 
         $topic = Topic::findOrFail($id);
@@ -56,6 +61,31 @@ class TopicQuestionController extends Controller
                 'answer' => $request->answer,
                 'difficulty_level' => $request->difficulty_level,
             ]);
+
+            $image = Image::read($request->file('image'));
+
+            // Main Image Upload on Folder Code
+            // $imageName = time() . '-' . $request->file('image')->getClientOriginalName();
+            // $imageName = $question->id . '.' . $request->image->extension();
+            $imageName = $question->id . '.png';
+
+            $uploadPath = public_path('images/uploads/');
+            $image->save($uploadPath . $imageName);
+
+            $thumbnailPath = public_path('images/thumbnails/');
+            $image->resize(50, 50);
+            $image->save($thumbnailPath . $imageName);
+
+            $question->update([
+                'image' => $imageName,
+            ]);
+            // Resize the image (optional)
+
+            // read image from file system
+            // $image = $manager->read('images/example.jpg');
+
+            // resize image proportionally to 300px width
+
 
             // mcqs or معروضی
             if ($request->type_id == 1) {
@@ -72,8 +102,6 @@ class TopicQuestionController extends Controller
                     'choice_d' => $request->choice_d,
                     'correct' => $correct,
                 ]);
-            } else {
-                echo "Invalid question type detected";
             }
 
             // commit if all ok
@@ -177,9 +205,16 @@ class TopicQuestionController extends Controller
     public function destroy($topicId, $id)
     {
         //
-        $model = Question::findOrFail($id);
+        $question = Question::findOrFail($id);
         try {
-            $model->delete();
+
+            $uploadPath = public_path('images/uploads/') . $question->image;
+            $thumbnailPath = public_path('images/thumbnails/') . $question->image;
+            // delete uploaded file and its thumbnail
+            File::delete($uploadPath);
+            File::delete($thumbnailPath);
+            // delete question itself
+            $question->delete();
             return redirect()->back()->with('success', 'Successfully deleted!');
         } catch (Exception $e) {
             return redirect()->back()->withErrors($e->getMessage());

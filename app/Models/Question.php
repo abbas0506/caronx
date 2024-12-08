@@ -16,6 +16,7 @@ class Question extends Model
         'answer',
         'type_id',
         'difficulty_level',
+        'image',
     ];
 
     public function topic()

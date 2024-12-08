@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Facade;
+use NunoMaduro\Collision\Provider;
 
 return [
 
@@ -124,6 +125,7 @@ return [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
+
 
     'aliases' => Facade::defaultAliases()->merge([
         'Roman' => \App\Helpers\Roman::class,

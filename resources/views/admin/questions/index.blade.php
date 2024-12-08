@@ -20,7 +20,7 @@
 
         <div class="bg-gradient-to-r from-teal-100 to-teal-50 rounded p-4 mt-8">
             <h2>{{ $topic->chapter->sr }}. {{ $topic->chapter->title }}</h2>
-            <p class="pl-5">{{ $topic->chapter->sr}}.{{ $topic->sr}} {{ $topic->name }}</p>
+            <p class="pl-5 mt-3">{{ $topic->chapter->sr}}.{{ $topic->sr}} {{ $topic->name }} <span class="text-sm ml-4"><i class="bi-arrow-up"></i>{{ $topic->questions()->today()->count() }}</span> </p>
         </div>
         <!-- search -->
         <div class="flex flex-wrap items-center justify-between p-4">
@@ -31,7 +31,7 @@
 
             <div class="flex items-center flex-wrap justify-between gap-x-6">
                 <!-- search -->
-                <a href="{{route('admin.topic.questions.create',$topic)}}" class="btn btn-teal rounded">New Q.</a>
+                <a href="{{route('admin.topic.questions.create',$topic)}}" class="btn btn-teal rounded-md">New Q.</a>
             </div>
         </div>
         <!-- page message -->
@@ -51,6 +51,7 @@
                         <th class="w-64">Question</th>
                         <th class="w-16">Type</th>
                         <th class="w-16">Difficulty</th>
+                        <th class="w-32">Figure</th>
                         <th class="w-12">Action</th>
                     </tr>
                 </thead>
@@ -73,6 +74,7 @@
                         </td>
                         <td>{{ $question->type->name }}</td>
                         <td>{{ $question->difficulty_level==1?'Low':($question->difficulty_level==2? 'High':'Very High') }}</td>
+                        <td><img src="{{ asset('/images/thumbnails/'.$question->image) }}" alt="" class="mx-auto"></td>
                         <td>
                             <div class="flex justify-center items-center space-x-2">
                                 <a href="{{route('admin.topic.questions.edit', [$topic, $question])}}">
