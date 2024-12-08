@@ -32,7 +32,7 @@
 
             <div class="flex items-center justify-between flex-wrap  gap-2">
                 <div class="flex flex-row items-center gap-3">
-                    <img src="{{ url('images/small/pdf.png') }}" alt="paper" class="w-12">
+                    <img src="{{ url('images/icons/pdf.png') }}" alt="paper" class="w-12">
                     <div class="flex flex-col">
                         <h2>{{ $paper->book->name }} </h2>
                         <div class="flex items-center space-x-3">

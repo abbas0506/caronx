@@ -21,7 +21,7 @@
         </div>
         <div class="md:w-4/5 mx-auto">
             <h1 class="text-xl md:text-3xl text-center mt-5">Question Bank</h1>
-            <img src="{{url('images/small/paper-3.png')}}" alt="paper" class="w-24 mx-auto mt-3">
+            <img src="{{url('images/icons/paper-3.png')}}" alt="paper" class="w-24 mx-auto mt-3">
             <p class="text-slate-600 leading-relaxed mt-6 text-center">Here you can explore question bank thoroughly. <br> Just click on any of the following grades</p>
             <div class="h-1 w-24 bg-teal-800 mx-auto mt-6"></div>
 

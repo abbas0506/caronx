@@ -30,7 +30,7 @@
                     <label>Ch # {{ $chapter->sr }}. {{ $chapter->title }}</label>
                 </div>
                 <div class="flex">
-                    <img src="{{ url('images/small/payment.png') }}" alt="wallet" class="w-8 h-8">
+                    <img src="{{ url('images/icons/payment.png') }}" alt="wallet" class="w-8 h-8">
                     <p class="text-sm">{{ Auth::user()->coins() }}</p>
                 </div>
             </div>

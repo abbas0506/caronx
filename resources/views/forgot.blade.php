@@ -4,7 +4,7 @@
 <div class="flex flex-col w-screen h-screen justify-center items-center px-5">
     <div class="md:w-1/3 md:px-8 py-3 bg-white relative">
         <div class="flex justify-center items-center">
-            <img src="{{ url('images/small/lock.png') }}" alt="lock" class="w-36 h-36">
+            <img src="{{ url('images/icons/lock.png') }}" alt="lock" class="w-36 h-36">
         </div>
         <!-- page message -->
         @if($errors->any())

@@ -30,7 +30,7 @@
             <a href="" class="flex items-center  pallet-box">
                 <div class="flex flex-1 items-center space-x-3">
                     <div>
-                        <img src="{{ url('images/small/wallet.png') }}" alt="" class="w-12 h-12">
+                        <img src="{{ url('images/icons/wallet.png') }}" alt="" class="w-12 h-12">
                     </div>
                     <div>
                         <h2 class="text-slate-600">My Wallet</h2>

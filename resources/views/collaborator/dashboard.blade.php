@@ -25,7 +25,7 @@
             <a href="" class="flex items-center pallet-box">
                 <div class="flex flex-1 items-center space-x-3">
                     <div>
-                        <img src="{{ url('images/small/tick-mark.png') }}" alt="tick" class="w-12 h-12">
+                        <img src="{{ url('images/icons/tick-mark.png') }}" alt="tick" class="w-12 h-12">
                     </div>
                     <div>
                         <h2 class="text-slate-600">Approved Questions</h2>
@@ -45,7 +45,7 @@
             <a href="" class="flex items-center pallet-box">
                 <div class="flex flex-1 items-center space-x-3">
                     <div>
-                        <img src="{{ url('images/small/payment.png') }}" alt="wallet" class="w-10 h-10">
+                        <img src="{{ url('images/icons/payment.png') }}" alt="wallet" class="w-10 h-10">
                     </div>
                     <div>
                         <h2 class="text-slate-600">My Wallet</h2>

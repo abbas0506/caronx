@@ -18,7 +18,7 @@
         @csrf
 
         <div class="grid place-content-center gap-4">
-            <img src="{{url('images/small/mcqs-1.jpg')}}" alt="mcqs" class="w-24 md:w-32 mx-auto">
+            <img src="{{url('images/icons/mcqs-1.jpg')}}" alt="mcqs" class="w-24 md:w-32 mx-auto">
             <h2>{{ $book->name }} </h2>
             <div class="w-32">
                 <label for="" class="text-red-600">How many MCQs?</label>

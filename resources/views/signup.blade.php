@@ -5,7 +5,7 @@
 <div class="flex justify-center items-center h-screen bg-white p-5">
 
     <div class="grid place-items-center w-full md:w-1/3 mx-auto">
-        <img src="{{ url('images/small/login.png') }}" alt="login" class="w-36">
+        <img src="{{ url('images/icons/login.png') }}" alt="login" class="w-36">
         <h2>www.exam.caronx.com</h2>
         <form action="{{ route('signup.store') }}" method="post" class="w-full mt-8">
             @csrf

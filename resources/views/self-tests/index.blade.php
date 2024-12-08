@@ -7,7 +7,7 @@
 <div class="w-full md:w-2/3 mx-auto text-center mt-32 px-5">
 
     <h1 class="text-2xl">SELF TEST</h1>
-    <img src="{{url('images/small/mcqs-1.jpg')}}" alt="mcqs" class="w-24 mx-auto">
+    <img src="{{url('images/icons/mcqs-1.jpg')}}" alt="mcqs" class="w-24 mx-auto">
     <p class="text-slate-600 leading-relaxed mt-6">Welcome to our Free Self-Testing Tool, designed to help students enhance their exam preparation and identify the areas of weakness </p>
     <div class="h-1 w-24 bg-teal-800 mx-auto mt-6"></div>
 

@@ -32,7 +32,7 @@
             <a href="" class="flex items-center pallet-box">
                 <div class="flex flex-1 items-center space-x-3">
                     <div>
-                        <img src="{{ url('images/small/wallet-0.png') }}" alt="wallet" class="w-12 h-12">
+                        <img src="{{ url('images/icons/wallet-0.png') }}" alt="wallet" class="w-12 h-12">
                     </div>
                     <div>
                         <h2 class="text-slate-600">My Wallet</h2>
@@ -48,7 +48,7 @@
             <a href="{{ route('user.profiles.edit', Auth::user()) }}" class="flex items-center pallet-box">
                 <div class="flex flex-1 items-center space-x-3">
                     <div>
-                        <img src="{{ url('images/small/profile-0.png') }}" alt="avatar" class="w-16 h-16">
+                        <img src="{{ url('images/icons/profile-0.png') }}" alt="avatar" class="w-16 h-16">
                     </div>
                     <div>
                         <h2 class="text-slate-600">Profile Status</h2>

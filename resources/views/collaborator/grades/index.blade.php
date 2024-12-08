@@ -22,7 +22,7 @@
         <div class="md:w-4/5 mx-auto">
             <h1 class="text-xl md:text-3xl text-center mt-5">Question Approval</h1>
             <p class="text-xl text-center mt-2">{{ Auth::user()->profile->subject->name_en }}</p>
-            <img src="{{url('images/small/online-test-min.png')}}" alt="paper" class="w-24 h-24 mx-auto mt-6">
+            <img src="{{url('images/icons/online-test-min.png')}}" alt="paper" class="w-24 h-24 mx-auto mt-6">
             <p class="text-slate-600 leading-relaxed mt-6 text-center">We are very lucky to have you in collaboration. Your valuable approvals or feedback will help us build an error free question bank and ultimately provide quality service.</p>
             <div class="h-1 w-24 bg-teal-800 mx-auto mt-6"></div>
 

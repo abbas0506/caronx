@@ -37,7 +37,7 @@ $QNo = 1;
             <div class="flex flex-row flex-wrap justify-between items-center gap-4 relative">
                 <div class="flex flex-row items-center gap-3">
                     <a href="{{ route('user.papers.simple-pdf.create', $paper) }}">
-                        <img src="{{ url('images/small/pdf.png') }}" alt="paper" class="w-12">
+                        <img src="{{ url('images/icons/pdf.png') }}" alt="paper" class="w-12">
                     </a>
                     <div class="flex flex-col">
                         <h2>{{ $paper->book->name }} </h2>

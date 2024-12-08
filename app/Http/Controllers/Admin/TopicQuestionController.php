@@ -48,7 +48,7 @@ class TopicQuestionController extends Controller
             'statement' => 'required|max:500',
             'answer' => 'nullable|max:500',
             'difficulty_level' => 'required|numeric',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5000',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $topic = Topic::findOrFail($id);
@@ -62,30 +62,28 @@ class TopicQuestionController extends Controller
                 'difficulty_level' => $request->difficulty_level,
             ]);
 
-            $image = Image::read($request->file('image'));
+            if ($request->hasFile('image')) {
+                $image = Image::read($request->file('image'));
 
-            // Main Image Upload on Folder Code
-            // $imageName = time() . '-' . $request->file('image')->getClientOriginalName();
-            // $imageName = $question->id . '.' . $request->image->extension();
-            $imageName = $question->id . '.png';
+                // $imageName = $question->id . '.' . $request->image->extension();
+                $imageName = $question->id . '.png';
 
-            $uploadPath = public_path('images/uploads/');
-            $image->save($uploadPath . $imageName);
+                $uploadPath = public_path('images/uploads/');
+                $image->resize(200, 200, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                });
+                $image->save($uploadPath . $imageName);
 
-            $thumbnailPath = public_path('images/thumbnails/');
-            $image->resize(50, 50);
-            $image->save($thumbnailPath . $imageName);
+                $thumbnailPath = public_path('images/thumbnails/');
+                // Resize the image (optional)
+                $image->resize(50, 50);
+                $image->save($thumbnailPath . $imageName);
 
-            $question->update([
-                'image' => $imageName,
-            ]);
-            // Resize the image (optional)
-
-            // read image from file system
-            // $image = $manager->read('images/example.jpg');
-
-            // resize image proportionally to 300px width
-
+                $question->update([
+                    'image' => $imageName,
+                ]);
+            }
 
             // mcqs or معروضی
             if ($request->type_id == 1) {
@@ -151,10 +149,12 @@ class TopicQuestionController extends Controller
             'statement' => 'required|max:200',
             'answer' => 'required|max:300',
             'difficulty_level' => 'required|numeric',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $topic = Topic::findOrFail($topicId);
         $question = Question::findOrFail($id);
+
         DB::beginTransaction();
 
         try {
@@ -165,6 +165,38 @@ class TopicQuestionController extends Controller
                 'answer' => $request->answer,
                 'difficulty_level' => $request->difficulty_level,
             ]);
+
+
+            if ($request->hasFile('image')) {
+                $image = Image::read($request->file('image'));
+                $uploadPath = public_path('images/uploads/');
+                $thumbnailPath = public_path('images/thumbnails/');
+
+                // replace old image
+                if ($question->image) {
+                    // delete the associated image and its thumbnail
+
+                    File::delete($uploadPath . $question->image);
+                    File::delete($thumbnailPath . $question->image);
+                }
+                //save new image
+                $imageName = $question->id . '.png';
+
+                $image->resize(200, 200, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                });
+                $image->save($uploadPath . $imageName);
+
+                // Resize the image (optional)
+                $image->resize(50, 50);
+                $image->save($thumbnailPath . $imageName);
+
+                $question->update([
+                    'image' => $imageName,
+                ]);
+            }
+
 
             // update mcqs
             if ($request->type_id == 1) {
@@ -208,11 +240,11 @@ class TopicQuestionController extends Controller
         $question = Question::findOrFail($id);
         try {
 
-            $uploadPath = public_path('images/uploads/') . $question->image;
-            $thumbnailPath = public_path('images/thumbnails/') . $question->image;
-            // delete uploaded file and its thumbnail
-            File::delete($uploadPath);
-            File::delete($thumbnailPath);
+            $uploadPath = public_path('images/uploads/');
+            $thumbnailPath = public_path('images/thumbnails/');
+            // delete the associated image and its thumbnail
+            File::delete($uploadPath . $question->image);
+            File::delete($thumbnailPath . $question->image);
             // delete question itself
             $question->delete();
             return redirect()->back()->with('success', 'Successfully deleted!');

@@ -13,14 +13,14 @@
         <div class="bread-crumb">
             <a href="{{url('/')}}">Home</a>
             <i class="bx bx-chevron-right"></i>
-            <a href="{{route('admin.course.chapters.index',$topic->chapter->course)}}">Courses</a>
+            <a href="{{route('admin.course.chapters.index',$topic->chapter->course)}}">Course</a>
             <i class="bx bx-chevron-right"></i>
             <div>Qs</div>
         </div>
 
         <div class="bg-gradient-to-r from-teal-100 to-teal-50 rounded p-4 mt-8">
             <h2>{{ $topic->chapter->sr }}. {{ $topic->chapter->title }}</h2>
-            <p class="pl-5 mt-3">{{ $topic->chapter->sr}}.{{ $topic->sr}} {{ $topic->name }} <span class="text-sm ml-4"><i class="bi-arrow-up"></i>{{ $topic->questions()->today()->count() }}</span> </p>
+            <p class="pl-5 mt-1">{{ $topic->chapter->sr}}.{{ $topic->sr}} {{ $topic->name }} <span class="text-sm ml-4"><i class="bi-arrow-up"></i>{{ $topic->questions()->today()->count() }}</span> </p>
         </div>
         <!-- search -->
         <div class="flex flex-wrap items-center justify-between p-4">

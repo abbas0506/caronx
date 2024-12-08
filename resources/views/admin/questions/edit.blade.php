@@ -13,7 +13,9 @@
         <div class="bread-crumb">
             <a href="{{url('/')}}">Home</a>
             <i class="bx bx-chevron-right"></i>
-            <a href="{{route('admin.course.chapters.index',$topic->chapter->course)}}">Chapters</a>
+            <a href="{{route('admin.course.chapters.index',$topic->chapter->course)}}">Course</a>
+            <i class="bx bx-chevron-right"></i>
+            <a href="{{route('admin.topic.questions.index',$topic)}}">Qs</a>
             <i class="bx bx-chevron-right"></i>
             <div>Edit Q.</div>
         </div>
@@ -35,12 +37,12 @@
                     <p class="pl-5">{{ $topic->chapter->sr}}.{{ $topic->sr}} {{ $topic->name }}</p>
                 </div>
                 <a href="{{ route('admin.topic.questions.index', $topic) }}" class="w-12 h-12 bg-teal-200 flex items-center justify-center rounded-full">
-                    <i class="bi-arrow-left"></i>
+                    <i class="bi-x-lg"></i>
                 </a>
             </div>
 
 
-            <form action="{{route('admin.topic.questions.update', [$topic, $question])}}" method='post' class="mt-6" onsubmit="return validate(event)">
+            <form action="{{route('admin.topic.questions.update', [$topic, $question])}}" method='post' enctype="multipart/form-data" class="mt-6">
                 @csrf
                 @method('patch')
                 <div class="grid items-center gap-6 w-full">
@@ -106,17 +108,44 @@
                         <label for="">Answer.</label>
                         <textarea type="text" id='answer' name="answer" class="custom-input py-2 mt-2" rows='3' placeholder="Type here">{{ $question->answer }}</textarea>
                     </div>
+                    <div class="grid md:grid-cols-2 place-items-center">
+                        <div>
+                            <label for="">Image</label>
+                            <img src="{{ asset('images/uploads/'.$question->image) }}" alt="">
+                        </div>
+                        <div>
+                            <div>
+                                <label for="" class="mt-6">Replacing Image</label>
+                                <input type="file" id='pic' name='image' placeholder="Image" class='custom-input py-2' onchange='preview_pic()' accept="image/*">
+                            </div>
+
+                            <div class="flex flex-col justify-center items-center">
+                                <img src="{{asset('images/no-image.png')}}" alt="" id='preview_img' class="w-60">
+                            </div>
+                        </div>
+                    </div>
+
 
                     <div class="text-right">
-                        <button type="submit" class="btn btn-green rounded">Create Now</button>
+                        <button type="submit" class="btn btn-green rounded">Update Now</button>
                     </div>
                 </div>
             </form>
 
         </div>
     </div>
+    <!-- simpla js -->
+    <script>
+        function preview_pic() {
+            const [file] = pic.files
+            if (file) {
+                preview_img.src = URL.createObjectURL(file)
+            }
+        }
+    </script>
 </div>
 @endsection
+
 @section('script')
 <script type="module">
     $(document).ready(function() {
@@ -143,19 +172,10 @@
 
         $('#type_id').change(function() {
 
-            if ($(this).val() == 1 || $(this).val() == 23) {
-                //mcq
+            if ($(this).val() == 1)
                 $('#mcq').show();
-                $('#comprehension').hide()
-            } else if ($(this).val() == 19 || $(this).val() == 29) {
-                //comprehension
+            else
                 $('#mcq').hide();
-                $('#comprehension').show()
-            } else {
-                // anyother type: short, long, punctuation etc
-                $('#mcq').hide();
-                $('#comprehension').hide()
-            }
 
         });
     });

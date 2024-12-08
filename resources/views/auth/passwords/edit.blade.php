@@ -2,7 +2,7 @@
 @section('body')
 
 <div class="grid grid-cols-1 md:grid-cols-2 md:h-screen place-items-center bg-white p-5">
-    <div><img src="{{ url('images/small/key.png') }}" alt="signup" class="md:w-full"></div>
+    <div><img src="{{ url('images/icons/key.png') }}" alt="signup" class="md:w-full"></div>
     <div class="grid place-items-center">
         <div class="">
             <!-- <img class="w-36 md:w-40 mx-auto" alt="logo" src="{{asset('images/logo/exampixel-0.png')}}"> -->
