@@ -57,7 +57,7 @@
                 </thead>
                 <tbody>
 
-                    @foreach($topic->questions->sortByDesc('updated_at') as $question)
+                    @foreach($topic->questions as $question)
                     <tr class="tr">
                         <td>{{$sr++}}</td>
                         <td class="text-left">
