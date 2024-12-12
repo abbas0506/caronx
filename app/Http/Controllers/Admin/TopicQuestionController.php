@@ -175,12 +175,11 @@ class TopicQuestionController extends Controller
                 // replace old image
                 if ($question->image) {
                     // delete the associated image and its thumbnail
-
                     File::delete($uploadPath . $question->image);
                     File::delete($thumbnailPath . $question->image);
                 }
                 //save new image
-                $imageName = $question->id . '.png';
+                $imageName = $question->id . str()->random(2) . '.png';
 
                 $image->resize(200, 200, function ($constraint) {
                     $constraint->aspectRatio();
