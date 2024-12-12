@@ -147,7 +147,7 @@ class TopicQuestionController extends Controller
         $request->validate([
             'type_id' => 'required|numeric',
             'statement' => 'required|max:500',
-            'answer' => 'required|max:500',
+            'answer' => 'nullable|max:500',
             'difficulty_level' => 'required|numeric',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
