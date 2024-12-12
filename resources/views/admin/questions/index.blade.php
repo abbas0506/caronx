@@ -62,15 +62,7 @@
                         <td>{{$sr++}}</td>
                         <td class="text-left">
                             <a href="{{ route('admin.topic.questions.show',[$topic,$question]) }}" class="link">{{ $question->statement }}</a>
-                            @if($question->mcq)
-                            <ul class="grid md:grid-cols-4 gap-2">
-                                <li @if($question->mcq?->correct=='a') class='font-bold'@endif>a) {{ $question->mcq?->choice_a  }}</li>
-                                <li @if($question->mcq?->correct=='b') class='font-bold'@endif>b) {{ $question->mcq?->choice_b  }}</li>
-                                <li @if($question->mcq?->correct=='c') class='font-bold'@endif>c) {{ $question->mcq?->choice_c  }}</li>
-                                <li @if($question->mcq?->correct=='d') class='font-bold'@endif>d) {{ $question->mcq?->choice_d  }}</li>
-                            </ul>
-                            @endif
-                            <p>Ans. {{ $question->answer }}</p>
+
                         </td>
                         <td>{{ $question->type->name }}</td>
                         <td>{{ $question->difficulty_level==1?'Low':($question->difficulty_level==2? 'High':'Very High') }}</td>
@@ -91,6 +83,25 @@
 
                         </td>
                     </tr>
+                    @if($question->mcq)
+                    <tr>
+                        <td></td>
+                        <td colspan="5">
+                            <ul class="grid md:grid-cols-4 gap-2 text-left">
+                                <li @if($question->mcq?->correct=='a') class='font-bold'@endif>a) {{ $question->mcq?->choice_a  }}</li>
+                                <li @if($question->mcq?->correct=='b') class='font-bold'@endif>b) {{ $question->mcq?->choice_b  }}</li>
+                                <li @if($question->mcq?->correct=='c') class='font-bold'@endif>c) {{ $question->mcq?->choice_c  }}</li>
+                                <li @if($question->mcq?->correct=='d') class='font-bold'@endif>d) {{ $question->mcq?->choice_d  }}</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    @endif
+                    @if($question->answer)
+                    <tr>
+                        <td></td>
+                        <td colspan="5" class="text-left"><span class="font-bold mr-2">Ans.</span>{{ $question->answer }}</td>
+                    </tr>
+                    @endif
                     @endforeach
 
                 </tbody>
