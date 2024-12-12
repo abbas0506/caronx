@@ -8,6 +8,11 @@
 @endsection
 
 @section('body')
+<style>
+    .question td {
+        background-color: #f1f5f9;
+    }
+</style>
 <div class="responsive-container">
     <div class="container">
         <div class="bread-crumb">
@@ -58,7 +63,7 @@
                 <tbody>
 
                     @foreach($topic->questions as $question)
-                    <tr class="tr">
+                    <tr class="tr question">
                         <td>{{$sr++}}</td>
                         <td class="text-left">
                             <a href="{{ route('admin.topic.questions.show',[$topic,$question]) }}" class="link">{{ $question->statement }}</a>
