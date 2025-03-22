@@ -5,7 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Book;
 use App\Models\Chapter;
-use App\Models\course;
+use App\Models\Course;
 use App\Models\Paper;
 use App\Models\Subject;
 use Exception;
