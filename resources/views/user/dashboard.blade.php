@@ -28,23 +28,7 @@
         @endif
 
         <!-- pallets -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
-            <a href="" class="flex items-center pallet-box">
-                <div class="flex flex-1 items-center space-x-3">
-                    <div>
-                        <img src="{{ url('images/icons/wallet-0.png') }}" alt="wallet" class="w-12 h-12">
-                    </div>
-                    <div>
-                        <h2 class="text-slate-600">My Wallet</h2>
-                        <label> Expires at: @if(Auth::user()->sales->count()) {{ Auth::user()->sales->max('expiry_at')->format('d/m/Y')}}@endif</label>
-                    </div>
-
-                </div>
-                <div class="ico bg-green-100 text-green-600">
-                    {{ Auth::user()->coins() }}
-                </div>
-            </a>
-
+        <div class="grid mt-2">
             <a href="{{ route('user.profiles.edit', Auth::user()) }}" class="flex items-center pallet-box">
                 <div class="flex flex-1 items-center space-x-3">
                     <div>

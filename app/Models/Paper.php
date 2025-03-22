@@ -11,8 +11,7 @@ class Paper extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'user_id',
-        'book_id',
+        'course_id',
         'title',
         'institution',
         'paper_date',
@@ -29,9 +28,9 @@ class Paper extends Model
     {
         return $this->belongsTo(User::class);
     }
-    public function book()
+    public function course()
     {
-        return $this->belongsTo(Book::class);
+        return $this->belongsTo(Course::class);
     }
 
     public function paperQuestions()
@@ -51,11 +50,8 @@ class Paper extends Model
     public function suggestedTime()
     {
         $sumOfMarks = $this->paperQuestions->sum('marks');
-        $m = round($sumOfMarks * 1.5, 0);   //1.5 time the total marks
+        $m = round($sumOfMarks * 2, 0);   //2 time the total marks
         $hr = intdiv($m, 60);
-        if(App::currentLocale() == 'ur'){
-            return $hr . "گھنٹہ " . $m % 60 . "منٹ";
-        }
 
         if ($hr > 0)
             return $hr . "h " . $m % 60 . "m";

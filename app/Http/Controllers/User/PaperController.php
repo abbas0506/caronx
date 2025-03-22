@@ -5,7 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Book;
 use App\Models\Chapter;
-use App\Models\Grade;
+use App\Models\course;
 use App\Models\Paper;
 use App\Models\Subject;
 use Exception;
@@ -29,9 +29,8 @@ class PaperController extends Controller
     public function create()
     {
         //
-        $grades = Grade::all();
-        $subjects = Subject::all();
-        return view('user.papers.create', compact('grades', 'subjects'));
+        $courses = Course::all();
+        return view('user.papers.create', compact('courses'));
     }
 
     /**
@@ -42,7 +41,7 @@ class PaperController extends Controller
         //
 
         $request->validate([
-            'book_id' => 'required|numeric',
+            'course_id' => 'required|numeric',
             'title' => 'required',
         ]);
 

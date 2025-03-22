@@ -25,12 +25,7 @@
             <p class="text-slate-600 leading-relaxed mt-6 text-center text-xs md:text-sm">Welcome to our Automated Question Paper Generation Tool, designed to offer you a simple yet highly flexible interface for creating custom question papers tailored to your specific needs.</p>
             <div class="h-1 w-24 bg-teal-800 mx-auto mt-6"></div>
             <p class="text-center mt-4 text-slate-500 text-sm">Step 1/4</p>
-            <h3 class="text-lg mt-2 text-center">Select a Grade</h3>
-            <div class="flex items-center justify-center gap-x-4 mt-5">
-                @foreach($grades as $grade)
-                <div data-bound='div-{{$grade->id}}' class="round-tab">{{ $grade->grade_no }}</div>
-                @endforeach
-            </div>
+            <h3 class="text-lg mt-2 text-center">Please fill the following</h3>
 
             @if($errors->any())
             <x-message :errors='$errors'></x-message>
@@ -38,15 +33,15 @@
             <x-message></x-message>
             @endif
 
-            @foreach($grades as $grade)
-            <form action="{{ route('user.papers.store') }}" id="div-{{$grade->id}}" class="fold hidden my-5" method="post">
+
+            <form action="{{ route('user.papers.store') }}" id="" class=" my-5" method="post">
                 @csrf
                 <div class="grid grid-cols-1 md:w-2/3 mx-auto gap-4">
                     <div>
-                        <label for="">Select a subject</label>
-                        <select name="book_id" id="" class="custom-input-borderless py-1 rounded">
-                            @foreach($grade->books as $book)
-                            <option value="{{ $book->id }}">{{$book->subject->name_en}}</option>
+                        <label for="">Select a Course</label>
+                        <select name="course_id" id="" class="custom-input-borderless py-2">
+                            @foreach($courses as $course)
+                            <option value="{{ $course->id }}">{{$course->name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -60,26 +55,26 @@
                     </div>
                 </div>
             </form>
-            @endforeach
 
         </div>
     </div>
-    @endsection
+</div>
+@endsection
 
-    @section('script')
-    <script type="module">
-        $('.round-tab').click(function() {
-            $('.round-tab').removeClass('active')
-            $(this).addClass('active');
-            $('#messageBeforeGradeSelection').hide();
+@section('script')
+<script type="module">
+    $('.round-tab').click(function() {
+        $('.round-tab').removeClass('active')
+        $(this).addClass('active');
+        $('#messageBeforecourseSelection').hide();
 
-            $('.fold').hide();
-            $('#' + $(this).attr('data-bound')).show()
+        $('.fold').hide();
+        $('#' + $(this).attr('data-bound')).show()
 
-            $('html, body').animate({
-                scrollTop: 200
-            }, 1000); // 1000 milliseconds = 1 second for the scroll duration
+        $('html, body').animate({
+            scrollTop: 200
+        }, 1000); // 1000 milliseconds = 1 second for the scroll duration
 
-        })
-    </script>
-    @endsection
+    })
+</script>
+@endsection

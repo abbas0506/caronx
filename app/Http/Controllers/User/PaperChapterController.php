@@ -17,9 +17,8 @@ class PaperChapterController extends Controller
     {
         //
         $paper = Paper::findOrFail($id);
-        $tagIds = $paper->book->chapters->sortBy('tag_id')->pluck('tag_id')->unique();
-        $tags = Tag::whereIn('id', $tagIds)->get();
-        return view('user.paper-chapters.index', compact('paper', 'tags'));
+        $course = $paper->course;
+        return view('user.paper-chapters.index', compact('paper', 'course'));
     }
 
     /**
