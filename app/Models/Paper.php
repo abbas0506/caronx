@@ -16,7 +16,7 @@ class Paper extends Model
         'institution',
         'paper_date',
         'is_printed',
-        'chapter_ids', //comma separted list of source chapters
+        'topic_ids', //comma separted list of source chapters
     ];
 
     protected $casts = [
@@ -42,9 +42,9 @@ class Paper extends Model
         return $this->hasManyThrough(PaperQuestionPart::class, PaperQuestion::class);
     }
 
-    public function chapterIdsArray()
+    public function topicIdsArray()
     {
-        return explode(',', $this->chapter_ids);
+        return explode(',', $this->topic_ids);
     }
 
     public function suggestedTime()

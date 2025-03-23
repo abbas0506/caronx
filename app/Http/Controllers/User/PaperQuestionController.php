@@ -26,7 +26,7 @@ class PaperQuestionController extends Controller
         $questionTypeIds = DB::table('questions')
             ->select('type_id')
             ->distinct()
-            ->whereIn('chapter_id', $paper->chapterIdsArray())
+            ->whereIn('topic_id', $paper->topicIdsArray())
             ->pluck('type_id');
 
         $questionTypes = Type::whereIn('id', $questionTypeIds)->get();

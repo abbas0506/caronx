@@ -40,7 +40,7 @@ $QNo = 1;
                         <img src="{{ url('images/icons/pdf.png') }}" alt="paper" class="w-12">
                     </a>
                     <div class="flex flex-col">
-                        <h2>{{ $paper->book->name }} </h2>
+                        <h2>{{ $paper->course->name }} </h2>
                         <label>{{ $paper->title }}</label>
                     </div>
                 </div>
@@ -55,7 +55,7 @@ $QNo = 1;
             <!-- show print button only if paper has some questions -->
             <div class="fixed left-0 md:pl-60 bottom-0 bg-teal-50 flex justify-between items-center w-full px-4 py-2 opacity-90">
                 <div class="flex flex-col flex-wrap gap-x-2">
-                    <h3>{{ $paper->book->name }}</h3>
+                    <h3>{{ $paper->course->name }}</h3>
                     <label> Step 3/4 ( {{ $paper->paperQuestions->sum('marks') }} marks )</label>
                 </div>
                 <div class="flex items-center space-x-3">
@@ -94,7 +94,7 @@ $QNo = 1;
                         @foreach ($paper->paperQuestions as $paperQuestion)
 
                         <!-- MCQs -->
-                        @if ($paperQuestion->type_name == 'mcq')
+                        @if ($paperQuestion->type_id==1)
                         <tr>
                             <td class="font-bold">Q.{{ $QNo++ }}</td>
                             <td class="text-left font-bold">{{ $paperQuestion->question_title }}</td>
@@ -167,7 +167,7 @@ $QNo = 1;
                         @endif
 
                         <!-- partial -->
-                        @if ($paperQuestion->type_name == 'partial' || $paperQuestion->type_name == 'partial-x')
+                        @if ($paperQuestion->type_id ==2 )
                         <tr>
                             <td class="font-bold">Q.{{ $QNo++ }}</td>
                             <td class="text-left font-bold">{{ $paperQuestion->question_title }}</td>

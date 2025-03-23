@@ -23,6 +23,7 @@ use App\Http\Controllers\User\PaperKeyController;
 use App\Http\Controllers\User\PaperQuestionController as UserPaperQuestionController;
 use App\Http\Controllers\User\PaperQuestionExtensionController;
 use App\Http\Controllers\User\PaperQuestionPartController;
+use App\Http\Controllers\User\PaperTopicController;
 use App\Http\Controllers\User\PartialQuestionController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\SimplePdfController;
@@ -88,7 +89,8 @@ Route::middleware(['auth'])->group(function () {
     Route::group(['prefix' => 'user', 'as' => 'user.', 'middleware' => ['role:user']], function () {
         Route::get('/', [TeacherDashboardController::class, 'index']);
         Route::resource('papers', TeacherPaperController::class);
-        Route::resource('paper.chapters', PaperChapterController::class);
+        Route::resource('paper.topics', PaperTopicController::class);
+        // Route::resource('paper.chapters', PaperChapterController::class);
         Route::resource('paper.questions', UserPaperQuestionController::class);
         Route::resource('paper-question-parts', PaperQuestionPartController::class);
 

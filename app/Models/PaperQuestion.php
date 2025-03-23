@@ -11,9 +11,9 @@ class PaperQuestion extends Model
     protected $fillable = [
         'paper_id',
         'question_title',
-        'type_name',       //question type: mcq, partial, simple etc
+        'type_id',       //question type: mcq, partial, simple etc
         'sr',
-        'frequency',        //question frequency
+        'difficulty_level',        //question frequency
         'marks',
         'compulsory_parts', //number of compulsory parts in partial question
         'number_style',

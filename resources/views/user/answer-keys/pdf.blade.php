@@ -49,7 +49,7 @@ $roman = config('global.romans');
                         <td colspan="2" class="text-center p-3 font-bold text-base">{{$paper->title}}</td>
                     </tr>
                     <tr>
-                        <td class="text-left">{{$paper->book->name}}</td>
+                        <td class="text-left">{{$paper->course->name}}</td>
                         <td class="text-right">Dated: {{$paper->paper_date->format('d/m/Y')}}</td>
                     </tr>
                     <tr>

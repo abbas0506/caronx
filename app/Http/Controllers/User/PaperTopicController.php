@@ -4,11 +4,10 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Paper;
-use App\Models\Tag;
 use Exception;
 use Illuminate\Http\Request;
 
-class PaperChapterController extends Controller
+class PaperTopicController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +17,7 @@ class PaperChapterController extends Controller
         //
         $paper = Paper::findOrFail($id);
         $course = $paper->course;
-        return view('user.paper-chapters.index', compact('paper', 'course'));
+        return view('user.paper-topics.index', compact('paper', 'course'));
     }
 
     /**
@@ -36,21 +35,21 @@ class PaperChapterController extends Controller
     {
         //
         $request->validate([
-            'chapter_ids_array' => 'required',
+            'topic_ids_array' => 'required',
         ]);
 
         try {
             $paper = Paper::findOrFail($id);
-            $chapterIdsArray = array();
-            $chapterIdsArray = $request->chapter_ids_array;
-            $commaSeparatedChapterIds = implode(',', $chapterIdsArray);
+            $topicIdsArray = array();
+            $topicIdsArray = $request->topic_ids_array;
+            $commaSeparatedTopicIds = implode(',', $topicIdsArray);
 
             $paper->update([
-                'chapter_ids' => $commaSeparatedChapterIds,
+                'topic_ids' => $commaSeparatedTopicIds,
             ]);
 
             session([
-                'chapterIdsArray' => $chapterIdsArray,
+                'topicIdsArray' => $topicIdsArray,
             ]);
 
             return redirect()->route('user.papers.show', $paper);
@@ -66,7 +65,6 @@ class PaperChapterController extends Controller
     public function show(string $id)
     {
         //
-        echo "show paper chapters";
     }
 
     /**

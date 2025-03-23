@@ -15,53 +15,53 @@ class ChapterSeeder extends Seeder
     {
         //
         // Chapter::create([
-        //     'book_id' => 11,
+        //     'course_id' => 11,
         //     'sr' => 1,
         //     'name' => 'Basics of Information Technology',
         // ]);
         // Chapter::create([
-        //     'book_id' => 11,
+        //     'course_id' => 11,
         //     'sr' => 2,
         //     'name' => 'Network Topologies',
         // ]);
         // Chapter::create([
-        //     'book_id' => 11,
+        //     'course_id' => 11,
         //     'sr' => 3,
         //     'name' => 'Network Models',
         // ]);
         // Chapter::create([
-        //     'book_id' => 11,
+        //     'course_id' => 11,
         //     'sr' => 4,
         //     'name' => 'Applications of Comupter',
         // ]);
 
         // Chapter::create([
-        //     'book_id' => 11,
+        //     'course_id' => 11,
         //     'sr' => 2,
         //     'name' => 'Network Topologies',
         // ]);
         // Chapter::create([
-        //     'book_id' => 11,
+        //     'course_id' => 11,
         //     'sr' => 2,
         //     'name' => 'Network Topologies',
         // ]);
         // Chapter::create([
-        //     'book_id' => 11,
+        //     'course_id' => 11,
         //     'sr' => 2,
         //     'name' => 'Network Topologies',
         // ]);
         // Chapter::create([
-        //     'book_id' => 11,
+        //     'course_id' => 11,
         //     'sr' => 2,
         //     'name' => 'Network Topologies',
         // ]);
         // Chapter::create([
-        //     'book_id' => 11,
+        //     'course_id' => 11,
         //     'sr' => 2,
         //     'name' => 'Network Topologies',
         // ]);
         // Chapter::create([
-        //     'book_id' => 11,
+        //     'course_id' => 11,
         //     'sr' => 2,
         //     'name' => 'Network Topologies',
         // ]);

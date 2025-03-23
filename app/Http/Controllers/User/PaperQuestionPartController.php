@@ -75,7 +75,6 @@ class PaperQuestionPartController extends Controller
 
             $paperQuestionPart = PaperQuestionPart::findOrFail($id);
             $paperQuestion = $paperQuestionPart->paperQuestion;
-            echo $paperQuestion->type_name;
             //delete only if it is last
             if ($paperQuestion->paperQuestionParts->count() > 1) {
 
@@ -89,15 +88,15 @@ class PaperQuestionPartController extends Controller
                 elseif ($paperQuestion->paperQuestionParts->count() <= $paperQuestion->compulsory_parts) {
                     // decrese by 1
                     $newCompulsoryCount = $paperQuestion->paperQuestionParts->count() - 1;
-                    if (in_array($paperQuestion->type_name, ['mcq', 'partial', 'partial-x'])) {
+                    if (in_array($paperQuestion->type_id, [1, 2])) {
 
                         $typeId = $paperQuestion->paperQuestionParts->first()->question->type_id;
                         $type = Type::findOrFail($typeId);
                         $question_title = $type->default_title;
 
-                        if (in_array($typeId, [1, 23])) { //mcq
+                        if ($typeId == 1) { //mcq
                             $marks = $newCompulsoryCount;
-                        } elseif (in_array($typeId, [2, 24])) { //short
+                        } elseif ($typeId == 2) { //short
                             $marks = $newCompulsoryCount * 2;
                         }
 
@@ -129,7 +128,7 @@ class PaperQuestionPartController extends Controller
 
         $alreadyIncludedQuestionIds = $paperQuestionPart->paperQuestion->paper->paperQuestionParts->pluck('question_id');
 
-        $replacingQuestion = Question::where('chapter_id', $paperQuestionPart->question->chapter_id)
+        $replacingQuestion = Question::where('topic_id', $paperQuestionPart->question->topic_id)
             ->where('type_id', $paperQuestionPart->question->type_id)
             ->whereNotIn('id', $alreadyIncludedQuestionIds)
             ->get()

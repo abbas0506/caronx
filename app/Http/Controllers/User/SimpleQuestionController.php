@@ -18,9 +18,9 @@ class SimpleQuestionController extends Controller
     {
 
         $paper = Paper::findOrFail($paperId);
-        if ($paper->chapterIdsArray()) {
+        if ($paper->topicIdsArray()) {
             //send only type-relevant chapters  
-            $chapterIds = Question::where('type_id', $typeId)->whereIn('chapter_id', $paper->chapterIdsArray())->pluck('chapter_id')->unique();
+            $chapterIds = Question::where('type_id', $typeId)->whereIn('chapter_id', $paper->topicIdsArray())->pluck('chapter_id')->unique();
             $chapters = Chapter::whereIn('id', $chapterIds)->get();
 
             $type = Type::findOrFail($typeId);

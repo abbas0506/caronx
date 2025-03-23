@@ -37,12 +37,12 @@
             @foreach($book->chapters->sortBy('sr') as $chapter)
             <div class="flex items-center justify-between space-x-2 border-b">
                 <label for="chapter{{$chapter->id}}" class="hover:cursor-pointer text-sm text-slate-600 text-left py-3 flex-1">{{$chapter->sr}}. &nbsp {{$chapter->title}}</label>
-                <input type="checkbox" id='chapter{{$chapter->id}}' name='chapter_ids_array[]' class="custom-input w-4 h-4" value="{{ $chapter->id }}">
+                <input type="checkbox" id='chapter{{$chapter->id}}' name='topic_ids_array[]' class="custom-input w-4 h-4" value="{{ $chapter->id }}">
             </div>
             @endforeach
         </div>
         <div class="flex items-center justify-center gap-4 my-8">
-            <input type="hidden" name="book_id" value="{{ $book->id }}">
+            <input type="hidden" name="course_id" value="{{ $book->id }}">
             <a href="{{ route('self-tests.index') }}" class="hover:bg-slate-100 py-3 px-4 text-sm rounded-md border">Cancel Test</a>
             <button type="submit" class="btn btn-teal py-3 px-4 text-sm rounded-md" @disabled($book->chapters->count()==0)> Start Now</button>
         </div>

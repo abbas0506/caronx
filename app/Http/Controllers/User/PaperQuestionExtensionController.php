@@ -26,7 +26,7 @@ class PaperQuestionExtensionController extends Controller
         $questionTypeIds = DB::table('questions')
             ->select('type_id')
             ->distinct()
-            ->whereIn('chapter_id', $paper->chapterIdsArray())
+            ->whereIn('chapter_id', $paper->topicIdsArray())
             ->whereNotIn('type_id', [1, 2, 23, 24]) //other than mcq, short
             ->pluck('type_id');
 
@@ -50,19 +50,19 @@ class PaperQuestionExtensionController extends Controller
         // }
 
         //send paper chapter only which have long data type
-        $chaptersIdsArray = $paper->chapterIdsArray();
+        $chaptersIdsArray = $paper->topicIdsArray();
 
         $chapterIdsConcerned = DB::table('questions')
             ->select('chapter_id')
             ->distinct()
-            ->whereIn('chapter_id', $paper->chapterIdsArray())
+            ->whereIn('chapter_id', $paper->topicIdsArray())
             ->where('type_id', $type->id) //concerned type only
             ->pluck('chapter_id');
 
         // $questionTypeIds = DB::table('questions')
         //     ->select('type_id')
         //     ->distinct()
-        //     ->whereIn('chapter_id', $paper->chapterIdsArray())
+        //     ->whereIn('chapter_id', $paper->topicIdsArray())
         //     ->whereNotIn('type_id', [1, 2, 23, 24]) //other than mcq, short
         //     ->pluck('type_id');
 
@@ -71,7 +71,7 @@ class PaperQuestionExtensionController extends Controller
         // $chapterIdsHavingLong = DB::table('questions')
         //     ->select('chapter_id')
         //     ->distinct()
-        //     ->whereIn('chapter_id', $paper->chapterIdsArray())
+        //     ->whereIn('chapter_id', $paper->topicIdsArray())
         //     ->whereNotIn('type_id', [1, 2, 23, 24]) //other than mcq, short
         //     ->pluck('chapter_id');
 

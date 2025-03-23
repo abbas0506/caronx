@@ -33,7 +33,7 @@ class LatexPdfController extends Controller
         $cols = $request->cols;
         $paper = Paper::findOrFail($paperId);
         $fontSize = $request->font_size;
-        if($paper->book->subject->text_direction == 'R'){
+        if ($paper->course->subject->text_direction == 'R') {
             App::setLocale('ur');
         }
         $data = view('user.pdf.latex.preview', compact('paper', 'orientation', 'pageSize', 'rows', 'cols', 'fontSize', 'paper'))->render();

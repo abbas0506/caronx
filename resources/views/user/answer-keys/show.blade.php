@@ -38,7 +38,7 @@
             <div class="flex justify-between mt-4">
                 <div>
                     <label>{{ $paper->title }}</label>
-                    <h2>{{ $paper->book->name }}</h2>
+                    <h2>{{ $paper->course->name }}</h2>
                 </div>
                 <div class="flex flex-col justify-center">
                     <div class="flex items-center">

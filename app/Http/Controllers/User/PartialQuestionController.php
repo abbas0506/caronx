@@ -7,6 +7,7 @@ use App\Models\Chapter;
 use App\Models\Paper;
 use App\Models\PaperQuestionPart;
 use App\Models\Question;
+use App\Models\Topic;
 use App\Models\Type;
 use Exception;
 use Illuminate\Http\Request;
@@ -22,11 +23,11 @@ class PartialQuestionController extends Controller
 
         $paper = Paper::findOrFail($paperId);
         //send only type-relevant chapters  
-        $chapterIds = Question::where('type_id', $typeId)->whereIn('chapter_id', $paper->chapterIdsArray())->pluck('chapter_id')->unique();
-        $chapters = Chapter::whereIn('id', $chapterIds)->get();
+        $topicIds = Question::where('type_id', $typeId)->whereIn('topic_id', $paper->topicIdsArray())->pluck('topic_id')->unique();
+        $topics = Chapter::whereIn('id', $topicIds)->get();
 
         $type = Type::findOrFail($typeId);
-        return view('user.paper-questions.partial.create', compact('paper', 'chapters', 'type'));
+        return view('user.paper-questions.partial.create', compact('paper', 'topics', 'type'));
     }
 
 
@@ -35,9 +36,9 @@ class PartialQuestionController extends Controller
         //
         $request->validate([
             'marks' => 'required|numeric',
-            'frequency' => 'required|numeric',
+            'difficulty_level' => 'required|numeric',
             'compulsory_parts' => 'required|numeric|min:1',
-            'chapter_ids_array' => 'required',
+            'topic_ids_array' => 'required',
             'num_of_parts_array' => 'required',
         ]);
 
@@ -53,36 +54,36 @@ class PartialQuestionController extends Controller
             if ($request->compulsory_parts < collect($request->num_of_parts_array)->sum())
                 $question_title = $request->question_title . " ( any " .  $formatter->format($request->compulsory_parts) . ")";
 
-            if ($typeId == 1 || $typeId == 30) //mcqs
+            if ($typeId == 1) //mcqs
                 $marks = $request->compulsory_parts;
-            elseif ($typeId == 2 || $typeId == 31) //short
+            elseif ($typeId == 2) //short
                 $marks = $request->compulsory_parts * 2;
             else
                 $marks = $request->marks;
 
             $paperQuestion = $paper->paperQuestions()->create([
                 'question_title' => $question_title,
-                'type_name' => $request->type_name,
-                'frequency' => $request->frequency,
+                'type_id' => $request->type_id,
+                'difficulty_level' => $request->difficulty_level,
                 'compulsory_parts' => $request->compulsory_parts,
                 'marks' => $marks,
             ]);
 
             //randomly select question parts from each chapter and save them
-            $chaperIds = array();
+            $topicIds = array();
             $numOfParts = array();
-            $chaperIds = $request->chapter_ids_array;
+            $topicIds = $request->topic_ids_array;
             $numOfParts = $request->num_of_parts_array;
-            $chapters = Chapter::whereIn('id', $chaperIds)->get();
+            $topics = Topic::whereIn('id', $topicIds)->get();
 
             $i = 0; //for iterating numOfparts
-            $threshold = $request->frequency;
+            $threshold = $request->difficulty_level;
 
-            foreach ($chapters as $chapter) {
+            foreach ($topics as $topic) {
                 // extract short question
                 $questions = Question::where('type_id', $typeId)
-                    ->where('chapter_id', $chapter->id)
-                    ->where('frequency', '>=', $threshold)
+                    ->where('topic_id', $topic->id)
+                    ->where('difficulty_level', '>=', $threshold)
                     ->get()
                     ->random($numOfParts[$i++]);
 

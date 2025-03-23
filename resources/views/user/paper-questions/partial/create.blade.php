@@ -21,13 +21,19 @@
             </div>
         </div>
 
+        <!-- page message -->
+        @if ($errors->any())
+        <x-message :errors='$errors'></x-message>
+        @else
+        <x-message></x-message>
+        @endif
 
         <div class="content-section mt-6">
             <div class="flex items-center justify-between flex-wrap  gap-2">
                 <div class="flex flex-row items-center gap-3">
                     <img src="{{ url('images/icons/pdf.png') }}" alt="paper" class="w-12">
                     <div class="flex flex-col">
-                        <h2>{{ $paper->book->name }} </h2>
+                        <h2>{{ $paper->course->name }} </h2>
                         <div class="flex items-center space-x-3">
                             <label>{{ $paper->title }}</label>
                         </div>
@@ -42,12 +48,12 @@
             <form action="{{ route('user.paper.question-type.partial-questions.store', [$paper, $type]) }}" method="post" class="grid gap-6 md:w-3/4 mx-auto mt-6">
                 @csrf
                 <h2 class="text-xl">{{ $type->name }}</h2>
-                <input type="hidden" name="type_name" value="{{ $type->display_style }}">
+                <input type="hidden" name="type_id" value="{{ $type->id }}">
 
                 <div class="grid md:grid-cols-3 gap-6 items-center">
                     <div class="">
-                        <label>Importance Level</label>
-                        <select name="frequency" id="" class="custom-input-borderless text-sm py-1">
+                        <label>Difficulty Level</label>
+                        <select name="difficulty_level" id="" class="custom-input-borderless text-sm py-1">
                             <option value="1">Normal</option>
                             <option value="2">High</option>
                             <option value="3">Very High</option>
@@ -77,12 +83,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($chapters->sortBy('sr') as $chapter)
+                            @foreach($topics->sortBy('sr') as $topic)
                             <tr>
-                                <td>{{ $chapter->sr}}.</td>
-                                <td class="text-left">{{ $chapter->title }}</td>
+                                <td>{{ $topic->sr}}.</td>
+                                <td class="text-left">{{ $topic->title }}</td>
                                 <td>
-                                    <input type="hidden" name='chapter_ids_array[]' value="{{$chapter->id}}">
+                                    <input type="hidden" name='topic_ids_array[]' value="{{$topic->id}}">
                                     <input type="number" name='num_of_parts_array[]' autocomplete="off" class="parts-count custom-input-borderless w-16 h-8 text-center px-0" min='0' value="0" oninput="syncNumOfParts()">
                                 </td>
                             </tr>

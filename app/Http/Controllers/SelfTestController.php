@@ -38,22 +38,22 @@ class SelfTestController extends Controller
     {
         //
         $request->validate([
-            'book_id' => 'required|numeric',
+            'course_id' => 'required|numeric',
             'mcqs_count' => 'required|numeric',
-            'chapter_ids_array' => 'required',
+            'topic_ids_array' => 'required',
         ]);
 
 
         try {
             // $test = Test::create($request->all());
-            $chapterIdsArray = array();
-            $chapterIdsArray = $request->chapter_ids_array;
+            $topicIdsArray = array();
+            $topicIdsArray = $request->topic_ids_array;
             session([
-                'chapterIdsArray' => $chapterIdsArray,
+                'topicIdsArray' => $topicIdsArray,
                 'mcqs_count' => $request->mcqs_count,
 
             ]);
-            return redirect()->route('self-tests.show', $request->book_id);
+            return redirect()->route('self-tests.show', $request->course_id);
         } catch (Exception $e) {
             return redirect()->back()->withErrors($e->getMessage());
             // something went wrong
@@ -68,16 +68,16 @@ class SelfTestController extends Controller
         //
         $book = Book::findOrFail($id);
 
-        $chapterIdsArray = session('chapterIdsArray');
+        $topicIdsArray = session('topicIdsArray');
 
         $mcqs_count = session('mcqs_count');
 
         try {
-            $questions = Question::whereIn('chapter_id', $chapterIdsArray)
+            $questions = Question::whereIn('chapter_id', $topicIdsArray)
                 ->where('type_id', 1)
                 ->get()
                 ->random($mcqs_count);
-            $chapterNos = Chapter::whereIn('id', $chapterIdsArray)->pluck('sr');
+            $chapterNos = Chapter::whereIn('id', $topicIdsArray)->pluck('sr');
             return view('self-tests.show', compact('book', 'chapterNos', 'questions'));
         } catch (Exception $ex) {
 
@@ -87,14 +87,14 @@ class SelfTestController extends Controller
 
         // echo $questions;
 
-        // $chapters = Chapter::whereIn('id', $chapterIdsArray)->get();
+        // $chapters = Chapter::whereIn('id', $topicIdsArray)->get();
         // $questions = collect();
-        // foreach ($chapterIdsArray as $chapterNo) {
+        // foreach ($topicIdsArray as $chapterNo) {
         //     $questionsFromThisChapter = Question::where('question_type', 'mcq')
         //         ->where('sr', $chapterNo)
         //         ->get()
         //         ->random(
-        //             round(20 / sizeOf($chapterIdsArray), 0)
+        //             round(20 / sizeOf($topicIdsArray), 0)
         //         );
 
         //     foreach ($questionsFromThisChapter as $question)

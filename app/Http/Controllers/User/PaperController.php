@@ -54,7 +54,7 @@ class PaperController extends Controller
             $user = Auth::user();
             $paper = $user->papers()->create($request->all());
 
-            return redirect()->route('user.paper.chapters.index', $paper);
+            return redirect()->route('user.paper.topics.index', $paper);
         } catch (Exception $e) {
             return redirect()->back()->withErrors($e->getMessage());
             // something went wrong

@@ -39,7 +39,7 @@
                 @csrf
                 @method('PATCH')
 
-                <input type="hidden" id='book_id' value="{{ $chapter->course->id }}">
+                <input type="hidden" id='course_id' value="{{ $chapter->course->id }}">
                 <div class="">
                     <label>Question Type</label>
                     <p>{{ $question->type->name }}</p>
