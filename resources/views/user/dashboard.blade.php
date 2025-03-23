@@ -82,7 +82,7 @@
                             <td class="text-left">
                                 <a href="{{route('user.papers.show',$paper)}}" class="link">{{$paper->title}}</a>
                                 <br>
-                                <label>{{$paper->course->grade->name}}-{{$paper->course->name}}</label>
+                                <label>{{$paper->course->name}}</label>
                             </td>
                             <td>{{$paper->paper_date->format('d/m/Y')}}</td>
                             <td><a href="{{route('user.papers.latex-pdf.create',$paper)}}"><i class="bi-printer"></i></a></td>
