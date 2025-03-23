@@ -85,7 +85,7 @@
                                 <label>{{$paper->course->name}}</label>
                             </td>
                             <td>{{$paper->paper_date->format('d/m/Y')}}</td>
-                            <td><a href="{{route('user.papers.latex-pdf.create',$paper)}}"><i class="bi-printer"></i></a></td>
+                            <td><a href="{{route('user.papers.simple-pdf.create',$paper)}}"><i class="bi-printer"></i></a></td>
                             <td><a href="{{route('user.papers.keys.show',$paper)}}"><i class="bi-key"></i></a></td>
                         </tr>
                         @endforeach
