@@ -61,7 +61,7 @@ $QNo = 1;
                 <div class="flex items-center space-x-3">
                     <a href="{{ route('user.papers.edit', $paper) }}" class="flex justify-center items-center rounded-full border border-slate-600 p-0 w-5 h-5"><i class="bi-question text-sm"></i></a>
                     @if($paper->paperQuestions->sum('marks')>0)
-                    <a href="{{ route('user.papers.latex-pdf.create', $paper) }}"><i class="bi-printer"></i></a>
+                    <a href="{{ route('user.papers.simple-pdf.create', $paper) }}"><i class="bi-printer"></i></a>
                     @endif
                     <a href="{{ route('user.paper.questions.create', $paper) }}" class="flex w-10 h-10 items-center justify-center rounded-full bg-teal-300 hover:bg-teal-400 text-xs">Q+</a>
                 </div>
